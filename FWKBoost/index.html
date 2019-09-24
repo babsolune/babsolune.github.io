@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+	<head>
+		<title>FWKBoost</title>
+		<meta charset="UTF-8" />
+		<meta name="description" content="The front-end framework from PHPBoost CMS" />
+		<meta name="generator" content="PHPBoost" />
+		<link rel="canonical" href="{U_CANONICAL}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta property="og:site_name" content="{SITE_NAME}" />
+		<meta property="og:locale" content="fr, en" />
+		<meta property="og:title" content="{PAGE_TITLE}" />
+		<meta property="og:type" content="{PAGE_TYPE}" />
+		<meta property="og:description" content="{SITE_DESCRIPTION}" />
+		<meta property="og:url" content="{U_CANONICAL}" />
+		<meta property="og:image" content="{U_PICTURE}" />
+
+		<!-- Theme CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+        <link rel="stylesheet" href="http://babsolune/github.io/FWKBoost/cdn/phpboost.default.css">
+        <link rel="stylesheet" href="http://babsolune/github.io/FWKBoost/cdn/phpboost.base.css">
+        <link rel="stylesheet" href="src/debug.css">
+        <link rel="stylesheet" href="src/debug.css">
+
+        <!-- Modules CSS -->
+
+		<!-- Favicons -->
+        <link rel="shortcut icon" href="http://babsolune/github.io/FWKBoost/cdn/images/favicon.ico">
+        <link rel="icon" type="image/png" href="http://babsolune/github.io/FWKBoost/cdn/images/android.png" sizes="192x192">
+        <link rel="apple-touch-icon" sizes="180x180" href="http://babsolune/github.io/FWKBoost/cdn/images/apple-touch.png">
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="http://babsolune/github.io/FWKBoost/cdn/phpboost.min.js"></script>
+	</head>
+
+	<body itemscope="itemscope" itemtype="http://schema.org/WebPage">
+        <div id="debug-grid"></div>
+        <a href="#global" aria-label="${LangLoader::get_message('go.to.content', 'main')}"></a>
+        <header id="header">
+        	<div id="top-header">
+        		<div id="site-infos" role="banner">
+        			<div id="site-logo"></div>
+        			<div id="site-name-container">
+        				<a id="site-name" href="{PATH_TO_ROOT}/">FWKBoost</a>
+        				<span id="site-slogan">Framework HTML/CSS/JS from <a href="https://www.phpboost.com">PHPBoost CMS</a></span>
+        			</div>
+        		</div>
+        		<div id="top-header-content">
+                    {top_header_content}
+        		</div>
+        	</div>
+        	<div id="sub-header">
+        		<div id="sub-header-content">
+            		{sub_header_content}
+        		</div>
+        	</div>
+        </header>
+        <div id="global" role="main">
+        	<aside id="menu-left" class="narrow-menu-left">
+				<section class="module-mini-container">
+					<header class="module-mini-top">
+						<h6 class="subtitle">{sub_title}</h6>
+					</header>
+					<div class="module-mini-contents">
+						{mini_contents}
+					</div>
+					<footer class="module_mini-bottom"></footer>
+				</section>
+				<section class="module-mini-container">
+					<header class="module-mini-top">
+						<h6 class="subtitle">{sub_title}</h6>
+					</header>
+					<div class="module-mini-contents">
+						{mini_contents}
+					</div>
+					<footer class="module_mini-bottom"></footer>
+				</section>
+        	</aside>
+
+        	<div id="main" class="main-with-left main-with-right" role="main" data-role="#main">
+        		<div id="top-content">
+        			{top_contents}
+        		</div>
+        		<div id="main-content" itemprop="mainContentOfPage">
+					<div id="treelinks"></div>
+        			<nav id="breadcrumb" itemprop="breadcrumb">
+        				<ol>
+        					<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        						<a href="#" itemprop="url">
+        							<span itemprop="title">{L_INDEX}</span>
+        						</a>
+        					</li>
+        					<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="current">
+        						<a href="#" itemprop="url">
+        							<span itemprop="title">{link_bread_crumb.TITLE}</span>
+        						</a>
+        					</li>
+        				</ol>
+        			</nav>
+					<section>
+						<header>
+							<h1>{PAGE_TITLE}</h1>
+						</header>
+						<article>
+							<header>
+								<h2>{ARTICLE_TITLE}</h2>
+							</header>
+							<div class="content">
+								{CONTENT} <br />
+								section>(header>h1>{{PAGE_TITLE}})+(article>(header>h2>{{ARTICLE_TITLE}})+(div.content>{{CONTENT}}))+footer
+							</div>
+						</article>
+						<footer></footer>
+					</section>
+        		</div>
+
+        		<div id="bottom-content">
+                    {bottom_contents}
+        		</div>
+        	</div>
+        	<aside id="menu-right" class="narrow-menu-right">
+                <section class="module-mini-container">
+                    <header class="module-mini-top">
+                        <h6 class="subtitle">{sub_title}</h6>
+                    </header>
+                    <div class="module-mini-contents">
+                        {mini_contents}
+                    </div>
+                    <footer class="module_mini-bottom"></footer>
+                </section>
+                <section class="module-mini-container">
+                    <header class="module-mini-top">
+                        <h6 class="subtitle">{sub_title}</h6>
+                    </header>
+                    <div class="module-mini-contents">
+                        {mini_contents}
+                    </div>
+                    <footer class="module_mini-bottom"></footer>
+                </section>
+        	</aside>
+        </div>
+        <footer id="footer">
+        	<div id="top-footer">
+        		{top_footer_contents}
+        	</div>
+        	<div class="footer-content">
+        		{footer_contents}
+        	</div>
+        	<div role="contentinfo" class="footer-infos">
+        		<span class="footer-infos-powered-by">Humbly propelled by <a href="https://www.phpboost.com">PHPBoost</a></span>
+        		<span class="footer-infos-template-author"> | Theme <em>Base</em> by <a href="https://www.phpboost.com">PHPBoost</a></span>
+        	</div>
+        </footer>
+        <span id="scroll-to-top" class="scroll-to" aria-label="Back to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></span>
+
+        <script src="http://babsolune/github.io/FWKBoost/cdn/phpboost.init.min.js"></script>
+
+	    <script>
+	        jQuery(document).ready(function(){
+	            jQuery("#debug-grid").load("src/debug-grid.tpl");
+	            jQuery("#treelinks").load("src/treelinks.tpl");
+			});
+	    </script>
+	</body>
+</html>
