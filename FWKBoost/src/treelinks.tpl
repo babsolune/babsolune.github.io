@@ -65,5 +65,4 @@
             });
             jQuery("#cssmenu-tools ul").removeClass('hidden');
         });
-
     </script>
