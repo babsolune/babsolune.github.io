@@ -7,15 +7,15 @@
                     <li class="has-sub">
                         <a href="#" class="cssmenu-title">General</a>
                         <ul class="level-1">
-                            <li><a href="https://www.minifier.org/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">Minifier</a></li>
+                            <!-- <li><a href="https://www.minifier.org/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">Minifier</a></li>
                             <li><a href="https://unminify.com/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">unMinifier</a></li>
-                            <li><a href="https://jscompress.com/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">JSCompress</a></li>
+                            <li><a href="https://jscompress.com/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">JSCompress</a></li> -->
                             <li><a href="http://www.shrinker.ch/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">Shrinker</a></li>
                             <li><a href="https://jsfiddle.net/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">JSFiddle</a></li>
                             <li><a href="https://caniuse.com/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">Can I use</a></li>
-                            <li><a href="https://www.caniemail.com/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">Can I email</a></li>
+                            <!-- <li><a href="https://www.caniemail.com/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">Can I email</a></li> -->
                             <li><a href="https://fontawesome.com/icons?d=gallery" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">Font Awesome</a></li>
-                            <li><a href="https://daneden.github.io/animate.css/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">Animate.css</a></li>
+                            <!-- <li><a href="https://daneden.github.io/animate.css/" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">Animate.css</a></li> -->
                         </ul>
                     </li>
                     <li class="has-sub">
@@ -35,8 +35,6 @@
                 <ul class="level-1">
                     <li><a href="https://www.phpboost.com" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">.com</a></li>
                     <li><a href="https://demo.phpboost.com" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">demo</a></li>
-                    <li><a href="https://dev.phpboost.com" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">dev</a></li>
-                    <li><a href="https://dl.phpboost.com" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">dl</a></li>
                     <li><a href="https://github.com/PHPBoost" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">github</a></li>
                 </ul>
             </li>
@@ -45,8 +43,6 @@
                 <ul class="level-1">
                     <li><a href="http://www.labsoweb.fr" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">.fr</a></li>
                     <li><a href="http://beta.labsoweb.fr" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">beta</a></li>
-                    <li><a href="http://data.babsoweb.com" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">data</a></li>
-                    <li><a href="http://test.babsoweb.com" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">labo</a></li>
                     <li><a href="https://github.com/PHPBoost" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">github</a></li>
                 </ul>
             </li>
