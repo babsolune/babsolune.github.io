@@ -1,3 +1,3 @@
 # BabsoWebLab under construction
 
-"Pas de pierre, pas de construction, ..., pas de construction, pas de palais, ... , pas de palais, ..., pas de palais"
+"No stone, no construction, ..., no construction, no palace, ... ,  no palace, ...,  no palace"
