@@ -3,4 +3,4 @@ A framework HTML/CSS/JS based on the [PHPBoost CMS](https://www.phpboost.com)
 
 Stones for Palace
 
-[FWKBoost Demo](https://babsolune.github.io/fwkboost)
+[FWKBoost Demo](https://babsolune.github.io/FWKBoost)
