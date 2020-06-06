@@ -1,11 +1,12 @@
-//Recherche d'une chaîne dans une autre.
+// Recherche d'une chaîne dans une autre.
+
 function strpos(haystack, needle)
 {
 	var i = haystack.indexOf(needle, 0); // returns -1
 	return i >= 0 ? i : false;
 }
 
-//Add information hide balise
+// Add information hide balise
 jQuery(document).ready(function(){
 	var IDCODE = 1;
 	jQuery('.formatter-hide').each( function(){
@@ -14,14 +15,14 @@ jQuery(document).ready(function(){
 			jQuery(this).attr('id','formatter-hide-container-' + IDCODE);
 			jQuery(this).removeClass('no-js');
 			jQuery(this).attr('onClick', 'bb_hide(' + IDCODE + ', 1, event);');
-			jQuery(this).children('.formatter-content').before('<span id="formatter-hide-message-' + IDCODE + '" class="formatter-hide-message">Hide the block</span>');
-			jQuery(this).children('.formatter-content').before('<span id="formatter-hide-close-button-' + IDCODE + '" class="formatter-hide-close-button" "aria-label="Hide the block" onclick="bb_hide(' + IDCODE + ', 0, event);"><i class="fa fa-times"></i><span class="formatter-hide-close-button-txt">Hide the block</span></span>');
+			jQuery(this).children('.formatter-content').before('<span id="formatter-hide-message-' + IDCODE + '" class="formatter-hide-message">' + L_HIDE_MESSAGE + '</span>');
+			jQuery(this).children('.formatter-content').before('<span id="formatter-hide-close-button-' + IDCODE + '" class="formatter-hide-close-button pinned error" aria-label="' + L_HIDE_HIDEBLOCK + '" onclick="bb_hide(' + IDCODE + ', 0, event);"><i class="fa fa-times"></i></span>');
 			IDCODE = IDCODE + 1;
 		}
 	} );
 } );
 
-//Hide / show hide balise content
+// Hide / show hide balise content
 function bb_hide(idcode, show, event)
 {
 	var idcode = (typeof idcode !== 'undefined') ? idcode : 0;
@@ -40,13 +41,13 @@ function bb_hide(idcode, show, event)
 }
 
 
-//Add button "Copy to clipboard" on Coding balise
+// Add button "Copy to clipboard" on Coding balise
 jQuery(document).ready(function(){
 	var IDCODE = 1;
 	jQuery('.formatter-code').each( function(){
 		if ( !jQuery(this).children('.formatter-content').hasClass('copy-code-content') )
 		{
-			jQuery(this).prepend('<span id="copy-code-' + IDCODE + '" class="copy-code" aria-label="Copy to clipboard" onclick="copy_code_clipboard(' + IDCODE + ')"><i class="fa fa-clipboard"><span class="copy-code-txt">Copy to clipboard</span></i></span>');
+			jQuery(this).prepend('<span id="copy-code-' + IDCODE + '" class="copy-code" aria-label="' + L_COPYTOCLIPBOARD + '" onclick="copy_code_clipboard(' + IDCODE + ')"><i class="far fa-clone fa-2x"></i></span>');
 			jQuery(this).children('.formatter-content').attr("id", 'copy-code-' + IDCODE + '-content');
 			jQuery(this).children('.formatter-content').addClass('copy-code-content');
 			IDCODE = IDCODE + 1;
@@ -54,7 +55,7 @@ jQuery(document).ready(function(){
 	} );
 } );
 
-//Function copy_code_clipboard
+// Function copy_code_clipboard
 //
 // Description :
 // This function copy the content of your specific selection to clipboard.
@@ -134,7 +135,7 @@ function copy_to_clipboard(tocopy)
 	}
 }
 
-//Function open_submenu
+//xFunction open_submenu
 //
 // Description :
 // This function add CSS Class to the specified CSS ID
@@ -219,24 +220,69 @@ function open_submenu(myid, myclass, closeother)
 // Description :
 // This function check or uncheck all checkbox with specific id
 //
-// options : one
+// options : three
 // {status} correspond to the status we need (check or uncheck).
+// {elements_number} corresponds to the total number of elements displayed.
+// {except_element} corresponds to an element to ignore.
 //
 // Return : -
 //
 // Comments :
 //
-function multiple_checkbox_check(status, nbr_element, except_element)
+function multiple_checkbox_check(status, elements_number, except_element, delete_button_control = true)
 {
 	var i;
 	var except_element = (typeof except_element !== 'undefined') ? except_element : 0;
-	for(i = 1; i <= nbr_element; i++)
+	for (i = 1; i <= elements_number; i++)
 	{
-		if($('#multiple-checkbox-' + i)[0] && i != except_element)
+		if ($('#multiple-checkbox-' + i)[0] && i != except_element)
 			$('#multiple-checkbox-' + i)[0].checked = status;
 	}
 	try {
 		$('.check-all')[0].checked = status;
+	}
+	catch (err) {}
+	if (delete_button_control)
+		delete_button_display(elements_number);
+}
+
+//Function delete_button_display
+//
+// Description :
+// This function change the data-confirmation message of the delete all button and its display
+//
+// options : one
+// {elements_number} corresponds to the total number of elements displayed.
+//
+// Return : -
+//
+// Comments :
+//
+function delete_button_display(elements_number)
+{
+	var i;
+	var checked_elements_number = 0;
+	for (i = 1; i <= elements_number; i++)
+	{
+		if ($('#multiple-checkbox-' + i)[0] && $('#multiple-checkbox-' + i)[0].checked == true)
+			checked_elements_number++;
+	}
+
+	try {
+		if (checked_elements_number > 0) {
+			$('#delete-all-button').attr("disabled", false);
+			if (checked_elements_number > 1)
+				$('#delete-all-button').attr("data-confirmation", "delete-elements");
+			else
+				$('#delete-all-button').attr("data-confirmation", "delete-element");
+		} else {
+			$('#delete-all-button').attr("disabled", true);
+		}
+		if (checked_elements_number < elements_number)
+			$('.check-all')[0].checked = false;
+		else if (checked_elements_number == elements_number)
+			$('.check-all')[0].checked = true;
+		update_data_confirmations();
 	}
 	catch (err) {}
 }
@@ -283,6 +329,38 @@ function escape_xmlhttprequest(contents)
 	return contents;
 }
 
+//Fonction de recherche des membres.
+function XMLHttpRequest_search_members(searchid, theme, insert_mode, alert_empty_login)
+{
+	var login = jQuery('#login' + searchid).val();
+	if( login != "" )
+	{
+		if (jQuery('#search_img' + searchid))
+			jQuery('#search_img' + searchid).append('<i class="fa fa-spinner fa-spin"></i>');
+
+		jQuery.ajax({
+			url: PATH_TO_ROOT + '/kernel/framework/ajax/member_xmlhttprequest.php?' + insert_mode + '=1',
+			type: "post",
+			dataType: "html",
+			data: {'login': login, 'divid' : searchid, 'token' : TOKEN},
+			success: function(returnData){
+				if (jQuery('#search_img' + searchid))
+					jQuery('#search_img' + searchid).children("i").remove();
+
+				if (jQuery("#xmlhttprequest-result-search" + searchid))
+					jQuery("#xmlhttprequest-result-search" + searchid).html(returnData);
+
+				jQuery("#xmlhttprequest-result-search" + searchid).fadeIn();
+			},
+			error: function(e){
+				jQuery('#search_img' + searchid).children("i").remove();
+			}
+		});
+	}
+	else
+		alert(alert_empty_login);
+}
+
 //Pour savoir si une fonction existe
 function functionExists(function_name)
 {
@@ -312,6 +390,38 @@ function include(file)
 		script.src = file;
 		document.documentElement.firstChild.appendChild(script);
 	}
+}
+
+//Affiche le lecteur vidéo avec la bonne URL, largeur et hauteur
+playerflowPlayerRequired = false;
+function insertMoviePlayer(id)
+{
+	if (!playerflowPlayerRequired)
+	{
+		include(PATH_TO_ROOT + '/kernel/lib/flash/flowplayer/flowplayer.js');
+		playerflowPlayerRequired = true;
+	}
+	flowPlayerDisplay(id);
+}
+
+//Construit le lecteur à partir du moment où son code a été interprété par l'interpréteur javascript
+function flowPlayerDisplay(id)
+{
+	//Construit et affiche un lecteur vidéo de type flowplayer
+	//Si la fonction n'existe pas, on attend qu'elle soit interprétée
+	if (!functionExists('flowplayer'))
+	{
+		setTimeout('flowPlayerDisplay(\'' + id + '\')', 100);
+		return;
+	}
+	//On lance le flowplayer
+	flowplayer(id, PATH_TO_ROOT + '/kernel/lib/flash/flowplayer/flowplayer.swf', {
+			clip: {
+				url: jQuery('#' + id).attr('href'),
+				autoPlay: false
+			}
+		}
+	);
 }
 
 var delay = 300; //Délai après lequel le bloc est automatiquement masqué, après le départ de la souris.
@@ -371,12 +481,18 @@ function scroll_to( position ) {
 	else {
 		jQuery('#cookie-bar-container').removeClass('fixed');
 	}
+
+	if ( position > 800 || ($(document).height() == $(window.top).height())) {
+		jQuery('#scroll-to-bottom').fadeOut();
+	} else {
+		jQuery('#scroll-to-bottom').fadeIn();
+	}
 }
 
 jQuery(document).ready(function(){
 	scroll_to($(this).scrollTop());
 
-	jQuery(window).scroll(function(){
+	jQuery(window.top).scroll(function(){
 		scroll_to($(this).scrollTop());
 	});
 
@@ -386,7 +502,7 @@ jQuery(document).ready(function(){
 		return false;
 	});
 	jQuery('#scroll-to-bottom').on('click',function(){
-		jQuery('html, body').animate({scrollTop: $(document).height()-$(window).height()},1200);
+		jQuery('html, body').animate({scrollTop: $(document).height()-$(window.top).height()},1200);
 		return false;
 	});
 });
@@ -529,3 +645,38 @@ function eraseCookie(name) {
   	selectedClass: 'lineselect'
   };
 })(jQuery);
+
+// set cell's height to width (setInterval needed because of the display:hidden)
+setInterval(function() {
+	jQuery('.square-cell').each(function(){
+		var cell_width = jQuery(this).outerWidth();
+		jQuery(this).outerHeight(cell_width + 'px');
+	});
+}, 1);
+
+// colorSurround add a colored square to the element and color its borders if it has.
+jQuery.fn.extend ({
+	colorSurround: function() {
+		return this.each(function(){
+			var color = jQuery(this).data('color-surround');
+			jQuery(this).css('border-color', color);
+			jQuery(this).prepend('<span style="background-color: ' + color + ';" class="data-color-surround"></span>')
+		})
+	}
+});
+
+// Scroll to anchor on .sticky-menu
+jQuery('.sticky-menu').each(function(){
+	jQuery('.sticky-menu .cssmenu-title').click(function(){
+		var targetId = jQuery(this).attr("href"),
+			hash = targetId.substring(targetId.indexOf('#'));
+		if(hash != null || hash != targetId) {
+			if (parseInt($(window).width()) < 769)
+				menuOffset = jQuery('.sticky-menu > .cssmenu > ul > li > .cssmenu-title').innerHeight();
+			else
+				menuOffset = jQuery('.sticky-menu > .cssmenu').innerHeight();
+			history.pushState('', '', hash);
+			jQuery('html, body').animate({scrollTop:jQuery(hash).offset().top - menuOffset}, 'slow');
+		}
+	});
+});

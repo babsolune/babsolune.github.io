@@ -1,16 +1,18 @@
 /**
- * @copyright 	&copy; 2015-2019 Labsoweb
- * @license 	https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL-3.0
- * @author      Sebastien LARTIGUE <babso@labsoweb.fr>
- * @version   	1.0 - 2019 09 06
- * @since   	2019 09 06
+ * Multi Tabs jQuery plugin - Version: 1.0
+ * @copyright   &copy; 2005-2020 PHPBoost - 2019 babsolune
+ * @license     https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL-3.0
+ * @author      Sebastien LARTIGUE <babsolune@phpboost.com>
+ * @version     PHPBoost 5.3 - last update: 2019 11 17
+ * @since       PHPBoost 5.3 - 2019 09 06
 */
+
 (function($) {
 
     $.fn.extend({
         multiTabs: function(options) {
             var defaults = {
-                pluginType: 'modal', // modal, accordion, tabs
+                pluginType: '', // modal, accordion, tabs
                 contentClass: '.content-panel',
                 animation: false,
                 animationClass: 'animated ',
@@ -27,10 +29,10 @@
                 $('.open-all-accordions').on('click', function(){
                     $(this).closest('.accordion-container').find('.accordion').addClass('active-panel').css('height', 'auto');
                     $(this).closest('.accordion-container').find('[data-target]').addClass('active-tab');
-                    console.log($(this).closest('.accordion-container'));
                 });
                 $('.close-all-accordions').on('click', function(){
-                    $(this).closest('.accordion-container').find('.accordion').removeClass('active-panel').css('height', 0);
+                    $(this).closest('.accordion-container').find('.accordion').removeClass('active-panel');
+                    $(this).closest('.accordion-container').find('.accordion').delay(800).queue(function (next) {$(this).css('height', 0); next();});
                     $(this).closest('.accordion-container').find('[data-target]').removeClass('active-tab');
                 });
             }
@@ -41,8 +43,9 @@
 
             if(options.pluginType == 'modal') {
                 $('.modal-container').find(hashUrl).addClass('active-panel');
-                $('.close-modal').on('click', function() {
+                $('.modal-container').on('click', '.hide-modal, .close-modal', function() {
                     $('.modal-container ' + hashUrl).removeClass('active-panel'); // remove activation class from the target
+                    history.pushState('', '', ' '); // delete the hash of the url without apllying it
                 });
             } else if(options.pluginType == 'accordion') {
                 if($('.accordion-container').find('[data-target="'+hashTarget+'"]').closest('.accordion').length){ // if target is nested
@@ -51,20 +54,23 @@
                 $('.accordion-container').find('[data-target="'+hashTarget+'"]').addClass('active-tab');
                 $('.accordion-container').find(hashUrl).addClass('active-panel').css('height', 'auto');
             } else if(options.pluginType == 'tabs') {
-                if(hashUrl){
-                    if($('.tabs-container').find('[data-target="'+hashTarget+'"]').closest('.tabs').length){ // if target is nested
+                if(hashUrl) {
+                    if($('.tabs-container').find('[data-target="'+hashTarget+'"]').closest('.tabs').length) // if target is nested
                         $('.tabs-container').find('[data-target="'+hashTarget+'"]').closest('.tabs').addClass('active-panel').css('height', 'auto');
+
+                    if($('.tabs-container').find('[data-target="'+hashTarget+'"]').length) {
+                        $('.tabs-container').find('[data-target="'+hashTarget+'"]').addClass('active-tab');
+                        $('.tabs-container').find(hashUrl).addClass('active-panel').css('height', 'auto');
+                    } else {
+                        $('.tabs-container .tabs.first-tab').addClass('active-panel').css('height', 'auto'); // show the first target when the page loads
                     }
-                    $('.tabs-container').find('[data-target="'+hashTarget+'"]').addClass('active-tab');
-                    $('.tabs-container').find(hashUrl).addClass('active-panel').css('height', 'auto');
                 } else {
-                    $('.tabs-container .tabs').first().addClass('active-panel').css('height', 'auto'); // show the first target when the page loading
-                    $('.tabs-container [data-trigger]').first().addClass('active-tab'); // and add activation class to the first target's trigger
-                    $('.tabs .tabs').first().addClass('active-panel').css('height', 'auto'); // show the first target when it's a nested tabs menu
-                    $('.tabs li:first-child [data-trigger]').addClass('active-tab'); // and add activation class to the first target's trigger
+                    $('.tabs-container .tabs.first-tab').addClass('active-panel').css('height', 'auto'); // show the first target when the page loads
+                    $('.tabs-container li:first-child [data-tabs]').addClass('active-tab'); // and add activation class to the first target's trigger
+                    $('.tabs-container .tabs .tabs.first-tab').addClass('active-panel').css('height', 'auto'); // show the first target when it's a nested tabs menu
+                    $('.tabs-container .tabs li:first-child [data-tabs]').addClass('active-tab'); // and add activation class to the first target's trigger
                 }
             }
-
 
             return this.each(function() {
                 var dataId = $(this).data('target'), // get the target name
@@ -73,25 +79,27 @@
                     animStyles = {
                         'animation-duration': options.animationDuration + 'ms',
                         'animation-delay': options.animationDelay + 'ms',
-                    },
-                    url = window.location.hash; // get the hash url of the current page
+                    };
 
                 if(options.pluginType == 'modal')
                 {
                     $(this).on('click', function(e) { //when click on a trigger
                         e.preventDefault(); // stop the trigger action
                         history.pushState('', '', '#'+dataId); // set the hash of the url whitout apllying it
+                        $(targetPanel).siblings().removeClass('active-panel'); // remove all active panel
                         $(targetPanel).addClass('active-panel'); // add activation class to the target
-                        $('.close-modal').on('click', function() {
+                        $('.modal-container').on('click', '.close-modal, .hide-modal', function() {
                             $(targetPanel).removeClass('active-panel'); // remove activation class from the target
+                            history.pushState('', '', ' '); // delete the hash of the url whitout apllying it
                         });
                         $('.modal [data-target]').on('click', function(){ // when trigger is inside one of the targets
+                            $(this).closest('nav').siblings(targetPanel).removeClass('active-panel'); // remove activation class from the target
                             $(this).closest('.modal').removeClass('active-panel'); // remove activation class from the running target
                         });
                         if(options.animation) { // if animate.css is active
                             $(targetPanel).removeClass().css(animStyles);// remove all classes from target & add animation details attributes
                             $(targetPanel).addClass('modal active-panel ' + options.animationClass + ' ' + options.animationIn); // then add necessary opening classes for animate.css
-                            $('.close-modal').on('click', function(){
+                            $('.modal-container').on('click', '.close-modal, .hide-modal', function(){
                                 $(this).parent().removeClass(options.animationIn).addClass(options.animationOut); // change animation classes to closing ones
                             });
                         }
@@ -106,13 +114,14 @@
                         var contentHeight = contentPanel.outerHeight(); // calculate height of target
                         if(options.accordionSiblings == true) {
                             $(this).closest('.accordion-container').find('.accordion').not(targetPanel).removeClass('active-panel').height(0);
-                            $(this).closest('.accordion-container').find('[data-trigger]').not(this).removeClass('active-tab');
+                            $(this).closest('.accordion-container').find('[data-accordion]').not(this).removeClass('active-tab');
                         }
                         if(targetPanel.hasClass('active-panel')) // if target is active
                         {
                             $(this).removeClass('active-tab');
                             $(targetPanel).removeClass('active-panel'); // remove activation class
                             $(targetPanel).css('height', 0); // set height of target to zero
+                            history.pushState('', '', ' '); // delete the hash of the url whitout apllying it
                             if(options.animation) { // if animate.css
                                 $(targetPanel).removeClass().css(animStyles);// remove all classes from target & add animation details attributes
                                 $(targetPanel).addClass('accordion ' + options.animationClass + ' ' + options.animationOut);  // then add necessary closing classes for animate.css
@@ -125,8 +134,7 @@
                             $(targetPanel).css('height', contentHeight + 'px'); // set the height of the target
                             if($(this).parents(options.contentClass).length) // if the trigger is inside a target
                             {
-                                var parentHeight = $(this).closest(options.contentClass).outerHeight(); // get the height of the container
-                                $(targetPanel).closest(options.contentClass).closest('.accordion').css('height', parentHeight + contentHeight + 'px'); // set the new height of the container adding the height of the target
+                                $(targetPanel).closest(options.contentClass).closest('.accordion').css('height', 'auto');
                             }
                             if(options.animation) { // if animate.css
                                 $(targetPanel).removeClass().css({ // remove all classes from target & add animation details attributes
@@ -143,18 +151,16 @@
                     $(this).on('click', function(e) {
                         e.preventDefault(); // stop the trigger action
                         history.pushState('', '', '#'+dataId); // send the id of the target as hash of the url whitout apllying it
-                        var contentHeight = contentPanel.outerHeight(); // set the height of the target
                         if(!$(this).hasClass('active-tab')) // if the trigger isn't active
                         {
                             $(targetPanel).siblings('.tabs').removeClass('active-panel').css('height', 0); // remove the activation class from all targets and set height of targets to zero
                             $(this).parent().siblings().find('[data-target]').removeClass('active-tab'); // and from all sibling triggers
                         }
                         $(this).addClass('active-tab'); // add activation class to the trigger
-                        $(targetPanel).addClass('active-panel').css('height', contentHeight + 'px'); // set the height of the target
+                        $(targetPanel).addClass('active-panel').css('height', 'auto'); // set the height of the target
                         if($(this).parents(options.contentClass).length) // if the trigger is inside a target
                         {
-                            var parentHeight = $(this).parents(options.contentClass).outerHeight(); // get the height of the container
-                            $(targetPanel).closest(options.contentClass).closest('.tabs').css('height', contentHeight + parentHeight + 'px'); // set the new height of the container adding the target one
+                            $(targetPanel).closest(options.contentClass).closest('.tabs').css('height', 'auto'); // set the new height of the container
                         }
                     });
                 }
