@@ -6,11 +6,7 @@ function loadScript(url)
     jsLocation.appendChild(script);
 }
 
-var L_HIDE_MESSAGE    = 'tag_hide_message';
-var L_HIDE_HIDEBLOCK  = 'tag_hide_hideblock';
-var L_COPYTOCLIPBOARD = 'Copy to clipboard';
-
-loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/@global.js');
+// loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/@global.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/autobox.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/autocomplete.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/basictable.js');
