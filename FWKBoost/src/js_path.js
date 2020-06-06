@@ -25,6 +25,5 @@ loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/p
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/UrlSerializedParameterEncoder.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/form/validator.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/wizard.js');
-loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/wizard.js');
 
 loadScript('https://raw.githack.com/babsolune/babsolune.github.io/master/FWKBoost/src/phpboost.init.js');
