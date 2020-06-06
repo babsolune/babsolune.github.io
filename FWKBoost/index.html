@@ -29,7 +29,6 @@
 
 	<body itemscope="itemscope" itemtype="http://schema.org/WebPage">
 		<div id="push-container" class="body-wrapper">
-	        <div id="debug-grid"></div>
 	        <a href="#global" aria-label="${LangLoader::get_message('go.to.content', 'main')}"></a>
 	        <header id="header">
 	        	<div id="top-header">
@@ -117,5 +116,10 @@
 		<div class="js-bottom">
 			<script src="https://raw.githack.com/babsolune/babsolune.github.io/master/FWKBoost/src/js_path.js"></script>
 		</div>
+		<script>
+		jQuery(document).ready(function(){
+			jQuery("#treelinks").load("src/treelinks.tpl");
+		});
+	</script>
 	</body>
 </html>

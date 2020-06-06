@@ -42,8 +42,8 @@
                 <a href="#" class="cssmenu-title">labsoweb</a>
                 <ul class="level-1">
                     <li><a href="http://www.labsoweb.fr" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">.fr</a></li>
-                    <li><a href="http://beta.labsoweb.fr" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">beta</a></li>
-                    <li><a href="https://github.com/PHPBoost" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">github</a></li>
+                    <li><a href="http://dev.babsoweb.com" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">Dev</a></li>
+                    <li><a href="https://github.com/babsolune" class="cssmenu-title" rel="nofollow noopener norefferer" target="_blank">github</a></li>
                 </ul>
             </li>
         </ul>
