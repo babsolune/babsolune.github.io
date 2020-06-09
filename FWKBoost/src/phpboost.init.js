@@ -1,5 +1,18 @@
 // js_bottom.tpl
 $(document).ready(function(){
+// Delete confirmation
+	function update_data_confirmations() {
+		jQuery('[data-confirmation]').each(function() {
+			data_confirmation = jQuery(this).attr('data-confirmation');
+			if (data_confirmation == 'delete-element')
+				var message = 'confirm delete';
+			else if (data_confirmation == 'delete-elements')
+				var message = 'confirm delete elements';
+			else
+				var message = data_confirmation;
+			this.onclick = function () { return confirm(message); }
+		});
+	}
 // lightbox
 	jQuery(document).ready(function() {
 		update_data_confirmations();
