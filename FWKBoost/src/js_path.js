@@ -17,12 +17,14 @@ loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/p
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/dndfiles.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/form/form.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/lightcase.js');
+loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/linedtextarea.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/menumaker.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/multitabs.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/notation.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/owl.carousel.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/pushmenu.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/selectimg.js');
+loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/selectimg.multi.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/sortable.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/tooltip.js');
 loadScript('https://raw.githack.com/PHPBoost/PHPBoost/master/templates/default/plugins/upload.js');

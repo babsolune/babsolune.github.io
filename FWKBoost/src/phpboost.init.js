@@ -13,6 +13,7 @@ $(document).ready(function(){
 			this.onclick = function () { return confirm(message); }
 		});
 	}
+
 // lightbox
 	jQuery(document).ready(function() {
 		update_data_confirmations();
@@ -57,10 +58,13 @@ $(document).ready(function(){
 // Wizard
     jQuery('.wizard-container').wizard();
 
-// Selectimg
-	jQuery('.select-to-list').selectimg({
+// SelectImg
+	jQuery('.select-to-list').selectImg({
 		ariaLabel : 'click.to.select'
 	});
+
+// SelectImg multi
+	jQuery('.multiple-select-to-list').multipleSelectImg();
 
 // sizes of .cell-thumbnail
 	jQuery('.cell-thumbnail.cell-landscape').each(function() {
@@ -76,12 +80,13 @@ $(document).ready(function(){
 		$(this).outerHeight(widthRef * 16 / 9);
 	});
 
+// Display the page only when it's loaded
 	jQuery(window).ready(function() {
   		jQuery('.body-wrapper').animate({opacity: 1}, 300);
 	});
 
 // Autoresize Textareas
-	$(document).autoboxOn('textarea:not(.lined textarea)');
+	// $(document).autoboxOn('textarea:not(.lined textarea)');
 
 // Add a colored square to the element and color its borders if it has
  	jQuery('[data-color-surround]').colorSurround();
@@ -92,7 +97,7 @@ $(document).ready(function(){
 		.addClass('owl-carousel')
 		.owlCarousel({
 			autoplay: true,
-			autoplayTimeout: 2000,
+			autoplayTimeout: 3500,
 			loop: true,
 			margin: 15,
 			smartSpeed: 1000,
