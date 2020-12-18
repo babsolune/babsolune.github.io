@@ -1,125 +1,158 @@
-<!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
-	<head>
-		<title>FWKBoost</title>
-		<meta charset="UTF-8" />
-		<meta name="description" content="The frontend framework from PHPBoost CMS" />
-		<meta name="generator" content="PHPBoost" />
-		<link rel="canonical" href="https://babsolune.github.io/FWKBoost/" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
 
-		<meta property="og:site_name" content="FWKBoost" />
-		<meta property="og:locale" content="fr, en" />
-		<meta property="og:title" content="FWKBoost demo" />
-		<meta property="og:type" content="home" />
-		<meta property="og:description" content="The frontend framework from PHPBoost CMS" />
-		<meta property="og:url" content="https://babsolune.github.io/FWKBoost/" />
-		<meta property="og:image" content="src/images/logo.png" />
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<!-- Favicons -->
-        <link rel="shortcut icon" href="src/images/favicon.ico">
-        <link rel="icon" type="image/png" href="src/images/android.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="src/images/apple-touch.png">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>FWKBoost project</title>
 
-		<link rel="stylesheet" href="https://raw.githack.com/PHPBoost/PHPBoost/master/templates/base/theme/@import.css" type="text/css" />
+    <meta name="description" content="FWKBoost is a CSS/HTML/jQuery framework from PHPBoost CMS" />
+    <meta name="keywords" content="PHPBoost, framework, CSS, HTML, javascript, jQuery, prism, icomoon, open source distribution" />
 
-		<script src="https://raw.githack.com/PHPBoost/PHPBoost/master/kernel/lib/js/jquery/jquery.js"></script>
-		<script src="https://raw.githack.com/PHPBoost/PHPBoost/master/kernel/lib/js/prism/prism.js"></script>
-	</head>
+    <!-- icofont -->
+    <link href="templates/__default__/font-awesome/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="templates/__default__/icoboost/icoboost.css" rel="stylesheet" type="text/css" />
 
-	<body itemscope="itemscope" itemtype="http://schema.org/WebPage">
-		<div id="push-container" class="body-wrapper">
-	        <a href="#global" aria-label="${LangLoader::get_message('go.to.content', 'main')}"></a>
-	        <header id="header">
-	        	<div id="top-header">
-	        		<div id="site-infos" role="banner">
-	        			<div id="site-logo"></div>
-	        			<div id="site-name-container">
-	        				<a id="site-name" href="{PATH_TO_ROOT}/">FWKBoost</a>
-	        				<span id="site-slogan">Framework HTML/CSS/JS from <a href="https://www.phpboost.com">PHPBoost CMS</a></span>
-	        			</div>
-	        		</div>
-	        		<div id="top-header-content">
-	                    {top_header_content}
-	        		</div>
-	        	</div>
-	        	<div id="sub-header">
-	        		<div id="sub-header-content">
-	            		{sub_header_content}
-	        		</div>
-	        	</div>
-	        </header>
-	        <div id="global" role="main">
-	        	<aside id="menu-left" class="narrow-menu-left">
-					{left_menu_content}
-	        	</aside>
+    <!-- prism -->
+    <link href="templates/__default__/prism/prism.css" rel="stylesheet" type="text/css" />
 
-	        	<div id="main" class="main-with-left main-with-right" role="main" data-role="#main">
-	        		<div id="top-content">
-	        			{top_contents}
-	        		</div>
-	        		<div id="main-content" itemprop="mainContentOfPage">
-						<div id="treelinks"></div>
-	        			<nav id="breadcrumb" itemprop="breadcrumb">
-	        				<ol>
-	        					<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
-	        						<a href="#" itemprop="url">
-	        							<span itemprop="title">{L_INDEX}</span>
-	        						</a>
-	        					</li>
-	        					<li itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="current">
-	        						<a href="#" itemprop="url">
-	        							<span itemprop="title">{link_bread_crumb.TITLE}</span>
-	        						</a>
-	        					</li>
-	        				</ol>
-	        			</nav>
-						<section>
-							<header>
-								<h1>{PAGE_TITLE}</h1>
-							</header>
-							<article>
-								<header>
-									<h2>{ARTICLE_TITLE}</h2>
-								</header>
-								<div class="content">
-									{CONTENT} <br />
-									section>(header>h1>{{PAGE_TITLE}})+(article>(header>h2>{{ARTICLE_TITLE}})+(div.content>{{CONTENT}}))+footer
-								</div>
-							</article>
-							<footer></footer>
-						</section>
-	        		</div>
+    <!-- Template Base -->
+    <link href="templates/base/base.min.css" rel="stylesheet" type="text/css" />
+    <link href="templates/base/plugins.min.css" rel="stylesheet" type="text/css" />
 
-	        		<div id="bottom-content">
-	                    {bottom_contents}
-	        		</div>
-	        	</div>
-	        	<aside id="menu-right" class="narrow-menu-right">
-					{right_menu_content}
-	        	</aside>
-	        </div>
-	        <footer id="footer">
-	        	<div id="top-footer">
-	        		{top_footer_contents}
-	        	</div>
-	        	<div class="footer-content">
-	        		{footer_contents}
-	        	</div>
-	        	<div role="contentinfo" class="footer-infos">
-	        		<span class="footer-infos-powered-by">Humbly propelled by <a href="https://www.phpboost.com">PHPBoost</a></span>
-	        		<span class="footer-infos-template-author"> | Theme <em>Base</em> by <a href="https://www.phpboost.com">PHPBoost</a></span>
-	        	</div>
-	        </footer>
-	        <span id="scroll-to-top" class="scroll-to" aria-label="Back to top"><i class="fa fa-chevron-up" aria-hidden="true"></i></span>
-		</div>
-		<div class="js-bottom">
-			<script src="https://raw.githack.com/babsolune/babsolune.github.io/master/FWKBoost/src/js_path.js"></script>
-		</div>
-		<script>
-			jQuery(document).ready(function(){
-				jQuery("#treelinks").load("src/treelinks.tpl");
-			});
-		</script>
-	</body>
+    <link href="favicon.ico" rel="icon" type="image/ico" />
+
+</head>
+
+<body class="index">
+    <div class="body-wrapper">
+        <header id="header">
+            <div id="top-header">
+                <div id="site-infos">
+                    <div id="site-logo" style="background-image: url('templates/base/images/logo.svg');"></div>
+                    <div id="site-name-container">
+                        <a href="/dashboard/home.html" id="site-name">FWKBoost</a>
+                        <span id="site-slogan">Framework from PHPBoost</span>
+                    </div>
+                </div>
+                <div id="top-header-content">
+                    <nav class="cssmenu cssmenu-horizontal">
+                        <ul>
+                            <li><a href="#get-started" class="cssmenu-title"><span>Get started</span></a></li>
+                            <li><a href="#documentation" class="cssmenu-title"><span>Documentation</span></a></li>
+                            <li><a name="phpboost" class="cssmenu-title fwkboost-toggle pushmenu-toggle"><i class="fas fa-bars"></i><span>PHPBoost</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <nav id="pushmenu-fwkboost" class="pushnav">
+            <ul>
+                <li class="bgc moderator"><i class="fa iboost fa-fw fa-iboost-logo visitor"></i> <span>LINKBoost</span>
+                    <ul>
+                        <li class=""><a aria-label="Official website" onclick="window.open(this.href); return false;" href="https://www.phpboost.com"><i class="fa iboost fa-fw fa-iboost-logo link-color"></i> <span>PHPBoost</span></a></li>
+                        <li class=""><a aria-label="Demo of the last stable version" onclick="window.open(this.href); return false;" href="https://demo.phpboost.com"><i class="fa iboost fa-fw fa-iboost-logo logo-color"></i> <span>DEMOBoost</span></a></li>
+                        <li class=""><a aria-label="Development website for next version" onclick="window.open(this.href); return false;" href="https://dev.phpboost.com"><i class="fa iboost fa-fw fa-iboost-logo link-color-alt"></i> <span>DEVBoost</span></a></li>
+                        <li class=""><a aria-label="Public website of next version" onclick="window.open(this.href); return false;" href="https://beta.phpboost.com"><i class="fa iboost fa-fw fa-iboost-logo moderator"></i> <span>BETABoost</span></a></li>
+                        <li class=""><a aria-label="PHPBoost on Github" onclick="window.open(this.href); return false;" href="https://github.com/PHPBoost"><i class="fab fa-fw fa-github administrator"></i> <span>Github</span></a></li>
+                    </ul>
+                </li>
+                <li class="bgc moderator"><i class="fa fa-fw fa-wrench visitor"></i> <span>Tools Empire</span>
+                    <ul>
+                        <li class=""><a onclick="window.open(this.href); return false;" href="https://atom.io/"><i class="fas fa-fw fa-atom notice"></i> <span>Atom</span></a></li>
+                        <li class=""><a onclick="window.open(this.href); return false;" href="https://dotmaui.com/"><i class="fa fa-fw fa-tools administrator"></i> <span>{.Maui}</span></a></li>
+                        <li class=""><a onclick="window.open(this.href); return false;" href="https://the-echoplex.net/flexyboxes/"><i class="fa fa-fw fa-th custom-author"></i> <span>Flexyboxes</span></a></li>
+                        <li class=""><a onclick="window.open(this.href); return false;" href="https://cssgrid-generator.netlify.app/"><i class="fa fa-fw fa-th moderator"></i> <span>CSS Grid Generator</span></a></li>
+                        <li class=""><a onclick="window.open(this.href); return false;" href="https://cubic-bezier.com/"><i class="fa fa-fw fa-bezier-curve visitor"></i> <span>Cubic Bezier</span></a></li>
+                        <li class=""><a onclick="window.open(this.href); return false;" href="https://icomoon.io/"><i class="fas fa-fw fa-icons moderator"></i> <span>IcoMoon</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="bottom-nav">
+                <li><a onclick="window.open(this.href); return false;" href="../workspace"><i class="fas fa-warehouse"></i></a></li>
+                <li class="align-right"><a onclick="window.open(this.href); return false;" href="../workspace/zeemp4"><i class="fas fa-film"></i></a></li>
+            </ul>
+        </nav>
+
+        <div id="global">
+            <div id="main">
+                <div id="main-content">
+                    <section>
+                        <header>
+                            <h1>FWKBoost, a framework inspired by a CMS</h1>
+                        </header>
+                        <article id="get-started">
+                                <h2>Get started</h2>
+                                <div class="content">
+                                    <div class="formatter-content formatter-code">
+                                        <span id="copy-code-1" class="copy-code" aria-label="Copier vers le presse-papier" onclick="copy_code_clipboard(1)"><i class="far fa-clone fa-lg"></i></span>
+                                        <div class="formatter-content copy-code-content" id="copy-code-1-content">
+                                            <pre class=" line-numbers language-html"><code class=" language-html">// Template css
+&lt;link href="templates/base/base.min.css" rel="stylesheet" type="text/css" />
+// jQuery
+&lt;script src="templates/__default__/js/jquery.js">&lt;/script>
+// phpboost js plugins
+&lt;script src="templates/__default__/js/fwkboost.min.js">&lt;/script>
+// Template js init
+&lt;script src="templates/base/base.init.js">&lt;/script></code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                        </article>
+                        <article id="documentation">
+                            <header><h2>Documentation</h2></header>
+                            <div class="content">
+                                For the time being, you can find the docummentation into the Sandbox module by installing the <a href="https://www.phpboost.com/download/73-phpboost-6-0/782-phpboost-6-0/">PHPBoost CMS beta version</a>.
+                            </div>
+                        </article>
+
+                        <footer>
+
+                        </footer>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <div class="footer-infos">
+            <span>Humbly propeled by <a href="https://www.phpboost.com">PHPBoost</a></span>
+        </div>
+    </footer>
+
+    <!-- Jquery -->
+    <script src="templates/__default__/js/jquery.js"></script>
+    <!-- FWKBoost -->
+    <script src="templates/__default__/js/fwkboost.min.js"></script>
+
+	<script src="templates/__default__/prism/prism.js"></script>
+    <!-- Template -->
+	<script src="templates/base/base.init.js"></script>
+
+    <!-- pushmenu -->
+	<script>
+        jQuery(document).ready(function(){
+    	    jQuery('#pushmenu-fwkboost').pushmenu({
+    			customToggle: jQuery('.fwkboost-toggle'), // null
+    			navTitle: 'WORLDBoost', // null
+    			pushContent: '.body-wrapper',
+    			position: 'right', // left, right, top, bottom
+    			levelOpen: 'overlap', // 'overlap', 'expand', false
+    			levelTitles: true, // overlap only
+    			levelSpacing: 40, // px - overlap only
+    			navClass: 'fwkboost-workspace',
+    			disableBody: true,
+    			closeOnClick: true, // if disableBody is true
+    			insertClose: true,
+    			labelClose: 'Close',
+    			insertBack: true,
+    			labelBack: 'Back'
+    	    });
+        });
+	</script>
+</body>
 </html>

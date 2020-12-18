@@ -1,15 +1,15 @@
-// js_bottom.tpl
-$(document).ready(function(){
+
 // Delete confirmation
 	function update_data_confirmations() {
 		jQuery('[data-confirmation]').each(function() {
+            var message = '';
 			data_confirmation = jQuery(this).attr('data-confirmation');
 			if (data_confirmation == 'delete-element')
-				var message = 'confirm delete';
+				message = 'confirm.delete';
 			else if (data_confirmation == 'delete-elements')
-				var message = 'confirm delete elements';
+				message = 'confirm.delete.elements';
 			else
-				var message = data_confirmation;
+				message = data_confirmation;
 			this.onclick = function () { return confirm(message); }
 		});
 	}
@@ -22,7 +22,7 @@ $(document).ready(function(){
 		jQuery('a[data-rel^=lightcase]').lightcase({
 			labels : {
 				'errorMessage'    : 'element.unexist',
-				'sequenceInfo.of' : ' of ',
+				'sequenceInfo.of' : ' of',
 				'close'           : 'close',
 				'navigator.prev'  : 'previous',
 				'navigator.next'  : 'next',
@@ -34,6 +34,14 @@ $(document).ready(function(){
 			shrinkFactor: 0.85
 		});
 	});
+
+// BBCode tables because they have no header
+	jQuery('.formatter-table').each(function(){
+		$this = jQuery(this).find('tbody tr:first-child td');
+		if (!$this.hasClass('formatter-table-head'))
+			$this.closest('.formatter-table').removeClass('table').addClass('table-no-header');
+	});
+
 // All tables
 	jQuery('.table').basictable();
 	jQuery('.table-no-header').basictable({
@@ -109,5 +117,3 @@ $(document).ready(function(){
 				1366: { items: 4}
 			}
 	});
-
-});
