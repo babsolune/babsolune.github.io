@@ -1,0 +1,1038 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Pagination Control | Documentation | jPList Library</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/styles.min.css?v=2" />
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../../img/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../img/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../img/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../img/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../../img/favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../../img/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../../img/favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../img/favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="../../img/favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="../../img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="../../img/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../../img/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="../../img/favicon/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="jPList Library"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="../../img/favicon/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="../../img/favicon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="../../img/favicon/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="../../img/favicon/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="../../img/favicon/mstile-310x310.png" />
+    <link rel="stylesheet" href="../../highlight/default.min.css" />
+
+</head>
+<body>
+
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row main-navbar">
+
+        <!-- logo -->
+        <a class="navbar-brand mr-0 mr-md-4" href="../../" aria-label="jPList">
+            <svg width="106" height="34" viewBox="0 0 106 34" version="1.1" xmlns="http://www.w3.org/2000/svg"><title>jPLIST</title><path d="M9.126 7.509v19.5c0 2.039-.54 3.625-1.623 4.759-1.082 1.133-2.643 1.7-4.683 1.7-.854 0-1.669-.097-2.444-.29v-3.914a9.27 9.27 0 0 0 1.556.154c1.492 0 2.238-.792 2.238-2.376V7.51h4.956zM3.777 2.724c0-.74.248-1.35.744-1.829C5.016.417 5.69.177 6.546.177c.854 0 1.53.24 2.025.718.496.479.743 1.088.743 1.829 0 .752-.253 1.367-.76 1.845-.507.479-1.176.718-2.008.718-.832 0-1.501-.24-2.008-.718-.507-.478-.76-1.093-.76-1.845zM18.44 17.233V26h-5.127V1.117h9.708c1.868 0 3.511.342 4.93 1.026 1.418.683 2.51 1.654 3.273 2.913.763 1.26 1.145 2.692 1.145 4.298 0 2.439-.835 4.361-2.504 5.768-1.67 1.407-3.98 2.11-6.93 2.11H18.44zm0-4.153h4.58c1.356 0 2.39-.319 3.102-.957.712-.638 1.068-1.55 1.068-2.734 0-1.22-.358-2.205-1.076-2.957-.718-.752-1.71-1.14-2.974-1.162h-4.7v7.81zm22.576 8.801h10.886V26H35.89V1.117h5.127v20.764zM60.293 26h-5.126V1.117h5.126V26zm17.654-6.528c0-.969-.342-1.712-1.025-2.23-.684-.519-1.914-1.066-3.692-1.641-1.777-.576-3.184-1.142-4.22-1.7-2.826-1.527-4.239-3.584-4.239-6.17 0-1.344.379-2.544 1.136-3.597.758-1.054 1.846-1.877 3.265-2.47 1.418-.592 3.01-.889 4.776-.889 1.778 0 3.361.322 4.751.966 1.39.644 2.47 1.552 3.239 2.726.769 1.173 1.153 2.506 1.153 3.999h-5.127c0-1.14-.359-2.025-1.076-2.658-.718-.632-1.726-.948-3.025-.948-1.253 0-2.228.265-2.923.795-.695.53-1.042 1.227-1.042 2.093 0 .809.407 1.487 1.222 2.034.814.547 2.014 1.06 3.597 1.538 2.917.877 5.042 1.965 6.375 3.264 1.333 1.299 2 2.917 2 4.854 0 2.153-.815 3.842-2.445 5.067-1.629 1.224-3.822 1.837-6.58 1.837-1.913 0-3.656-.35-5.229-1.051-1.572-.7-2.771-1.66-3.597-2.88-.826-1.219-1.239-2.632-1.239-4.238h5.144c0 2.746 1.64 4.119 4.922 4.119 1.219 0 2.17-.248 2.854-.744.683-.496 1.025-1.188 1.025-2.076zM105.291 5.27h-7.622V26h-5.127V5.27h-7.52V1.117h20.269V5.27z" fill="#FFF" stroke="none" stroke-width="1" fill-rule="evenodd"/></svg>
+            <span>v1.2.0</span>
+        </a>
+
+        <div class="navbar-nav-scroll">
+            <ul class="navbar-nav main-navbar-nav flex-row flex-wrap justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="../../">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="./">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../examples">Examples</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/1rosehip/jplist-es6">Download</a>
+                </li>
+            </ul>
+        </div>
+
+        <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+
+            <li class="nav-item">
+                <a
+                    class="nav-link github-link"
+                    href="https://github.com/1rosehip/jplist-es6"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="GitHub">
+
+                    <img
+                            src="../../img/icons/github-logo-light.png"
+                            class="d-inline-block align-top mr-1"
+                            alt="Fork me on GitHub"
+                            title="Fork me on GitHub" />
+                    Fork me on GitHub
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+            <!-- first sidebar -->
+            <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+                <nav class="collapse bd-links" id="bd-docs-nav">
+                    <div class="bd-toc-item">
+                        <a class="bd-toc-link" href="../">Getting Started</a>
+                    </div>
+                    <div class="bd-toc-item active">
+                        <a class="bd-toc-link" href="hidden-sort.html">Sort Controls</a>
+                        <ul class="nav bd-sidenav">
+                            <li class="active bd-sidenav-active">
+                                <a href="hidden-sort.html">
+                                    <i class="fas fa-sort-alpha-up"></i>
+                                    <span>Hidden Sort Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="sort-buttons.html">
+                                    <i class="fas fa-sort"></i>
+                                    <span>Buttons Sort Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="radio-buttons-sort.html">
+                                    <i class="fas fa-sort-alpha-down"></i>
+                                    <span>Radio Buttons Sort Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="checkbox-sort.html">
+                                    <i class="fas fa-sort-amount-up"></i>
+                                    <span>Checkbox Sort Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="select-sort.html">
+                                    <i class="fas fa-sort-amount-down"></i>
+                                    <span>Select Sort Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dropdown-sort.html">
+                                    <i class="fas fa-sort-numeric-up"></i>
+                                    <span>Dropdown Sort Control</span>
+                                </a>
+                            </li>
+                            <!--<li class="spacer"></li>-->
+                        </ul>
+
+                    </div>
+                    <div class="bd-toc-item active">
+                        <a class="bd-toc-link" href="pagination.html">Pagination Controls</a>
+                        <ul class="nav bd-sidenav">
+                            <li>
+                                <a href="pagination.html">
+                                    <i class="fas fa-list-ol"></i>
+                                    <span>Pagination</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bd-toc-item active">
+                        <a class="bd-toc-link" href="textbox-filter.html">Text Filter Controls</a>
+                        <ul class="nav bd-sidenav">
+                            <li>
+                                <a href="textbox-filter.html">
+                                    <i class="fas fa-search"></i>
+                                    <span>Textbox Filter Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="checkbox-text-filter.html">
+                                    <i class="fas fa-check-square"></i>
+                                    <span>Checkbox Text Filter Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="radio-buttons-text-filter.html">
+                                    <i class="fas fa-dot-circle"></i>
+                                    <span>Radio Buttons Text Filter Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="buttons-text-filter.html">
+                                    <i class="fas fa-filter"></i>
+                                    <span>Buttons Text Filter Control</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bd-toc-item active">
+                        <a class="bd-toc-link" href="select-filter.html">Path Filter Controls</a>
+                        <ul class="nav bd-sidenav">
+                            <li>
+                                <a href="select-filter.html">
+                                    <i class="fas fa-caret-square-down"></i>
+                                    <span>Select Filter Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dropdown-filter.html">
+                                    <i class="far fa-caret-square-down"></i>
+                                    <span>Dropdown Filter Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="checkbox-path-filter.html">
+                                    <i class="far fa-check-circle"></i>
+                                    <span>Checkbox Path Filter Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="radio-buttons-path-filter.html">
+                                    <i class="far fa-dot-circle"></i>
+                                    <span>Radio Buttons Path Filter Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="buttons-path-filter.html">
+                                    <i class="fas fa-hockey-puck"></i>
+                                    <span>Buttons Path Filter Control</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bd-toc-item active">
+                        <a class="bd-toc-link" href="buttons-range-filter.html">Range Filter Controls</a>
+                        <ul class="nav bd-sidenav">
+                            <li>
+                                <a href="buttons-range-filter.html">
+                                    <i class="fas fa-arrows-alt-h"></i>
+                                    <span>Buttons Range Filter Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="slider-range-filter.html">
+                                    <i class="fas fa-sliders-h"></i>
+                                    <span>Slider Range Filter Control</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bd-toc-item active">
+                        <a class="bd-toc-link" href="no-results.html">Other Controls</a>
+                        <ul class="nav bd-sidenav">
+                            <li>
+                                <a href="no-results.html">
+                                    <i class="fas fa-search-minus"></i>
+                                    <span>No Results Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="layout.html">
+                                    <i class="fas fa-th"></i>
+                                    <span>Layout Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="reset.html">
+                                    <i class="fas fa-undo-alt"></i>
+                                    <span>Reset Control</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="counter.html">
+                                    <i class="fas fa-dice-four"></i>
+                                    <span>Counter Control</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bd-toc-item active">
+                        <a class="bd-toc-link" href="../api/add-element.html">API</a>
+                        <ul class="nav bd-sidenav">
+                            <li>
+                                <a href="../api/add-element.html">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Add element</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../api/remove-element.html">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Remove element</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../api/refresh.html">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Refresh</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../api/reset-controls.html">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Reset Controls</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../api/jplist-state-event.html">
+                                    <i class="fas fa-cog"></i>
+                                    <span>jPList State Event</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bd-toc-item active">
+                        <a class="bd-toc-link" href="../source-code">Source Code</a>
+                        <ul class="nav bd-sidenav">
+                            <li>
+                                <a href="../source-code">
+                                    <i class="fas fa-code"></i>
+                                    <span>Working with the source code</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+
+
+    <!-- links sidebar -->
+    <div class="d-none d-xl-block col-xl-2 bd-toc">
+
+        <ul class="section-nav">
+            <li class="toc-entry toc-h2"><a href="#html-structure">HTML Structure</a>
+                <ul>
+                    <li class="toc-entry toc-h3"><a href="#add-remove-buttons">Add / remove buttons</a></li>
+                    <li class="toc-entry toc-h3"><a href="#information-labels">Information Labels</a></li>
+                    <li class="toc-entry toc-h3"><a href="#panels">Top and bottom panels</a></li>
+                    <li class="toc-entry toc-h3"><a href="#items-per-page-select">Items per page select</a></li>
+                    <li class="toc-entry toc-h3"><a href="#items-per-page-dropdown">Items per page dropdown</a></li>
+                    <li class="toc-entry toc-h3"><a href="#bootstrap-pagination-example">Bootstrap pagination example</a></li>
+                    <li class="toc-entry toc-h3"><a href="#jump">Jump to top</a></li>
+                </ul>
+            </li>
+            <li class="toc-entry toc-h2"><a href="#pagination-classes">Pagination Classes</a></li>
+            <li class="toc-entry toc-h2"><a href="#deep-linking">Deep Linking</a></li>
+            <li class="toc-entry toc-h2"><a href="#storage">Storage</a></li>
+            <li class="toc-entry toc-h2"><a href="#data-attributes">Data Attributes</a>
+                <ul>
+                    <li class="toc-entry toc-h3"><a href="#inner-elements-data-attributes">Inner elements</a></li>
+                    <li class="toc-entry toc-h3"><a href="#macros">Macros</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <!-- main content -->
+    <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+
+        <h1 class="bd-title">Pagination Control</h1>
+
+        <p class="bd-lead">This control lets you split large amounts of content into pages with navigation buttons and <i>items per page</i> dropdown.</p>
+
+        <div class="codepen">
+            <p data-height="1265" data-theme-id="0" data-slug-hash="rvZoZQ" data-default-tab="html,result" data-user="1rosehip" data-embed-version="2" data-pen-title="jPList Pagination Control" class="codepen">See the Pen <a href="https://codepen.io/1rosehip/pen/rvZoZQ/">jPList Pagination Control</a> by 1rosehip (<a href="https://codepen.io/1rosehip">@1rosehip</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+            <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+        </div>
+
+        <h2 id="html-structure">HTML Structure</h2>
+
+        <p>
+            Pagination control is defined by required <code class="highlighter-rouge">data-jplist-control="pagination"</code> data attribute. The <code class="highlighter-rouge">data-group</code> attribute defines group of elements that should be paginated. The full list of data attributes can be found <a href="#data-attributes">here</a>.
+        </p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;!-- jplist styles - should not be added if bootstrap or other CSS framework is used -->
+&lt;link href="jplist.styles.css" rel="stylesheet" type="text/css" />
+
+&lt;!-- pagination control -->
+&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-items-per-page="5"
+        data-current-page="0"
+        data-name="pagination1">
+
+    &lt;button type="button" data-type="first">«&lt;/button>
+    &lt;button type="button" data-type="prev">‹&lt;/button>
+
+    &lt;div class="jplist-holder" data-type="pages">
+        &lt;button type="button" data-type="page">Page {pageNumber}&lt;/button>
+    &lt;/div>
+
+    &lt;button type="button" data-type="next">›&lt;/button>
+    &lt;button type="button" data-type="last">»&lt;/button>
+&lt;/div>
+
+&lt;!-- content to paginate -->
+&lt;div data-jplist-group="group1">
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+&lt;/div>
+
+&lt;!-- jplist library -->
+&lt;script src="jplist.min.js">&lt;/script>
+&lt;script>
+    jplist.init();
+&lt;/script>
+            </code></pre>
+        </div>
+
+        <h3 id="add-remove-buttons">Add / remove buttons</h3>
+
+        <p>
+            To show only page buttons just remove the other buttons:
+        </p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;!-- pagination control -->
+&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-items-per-page="5"
+        data-current-page="0"
+        data-name="pagination1">
+
+    &lt;div class="jplist-holder" data-type="pages">
+        &lt;button type="button" data-type="page">Page {pageNumber}&lt;/button>
+    &lt;/div>
+&lt;/div>
+            </code></pre>
+        </div>
+
+        <p>
+            The same way it's possible to remove all buttons except previous and next buttons:
+        </p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;!-- pagination control -->
+&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-items-per-page="5"
+        data-current-page="0"
+        data-name="pagination1">
+
+    &lt;button type="button" data-type="prev">‹&lt;/button>
+    &lt;button type="button" data-type="next">›&lt;/button>
+&lt;/div>
+            </code></pre>
+        </div>
+
+
+        <h3 id="information-labels">Information Labels</h3>
+
+        <p>
+            Information labels can be used to print current page number, the whole pages number and other pagination data.
+        </p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;!-- pagination control -->
+&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-items-per-page="5"
+        data-current-page="0"
+        data-name="pagination1">
+
+    ...
+
+    &lt;span data-type="info">
+        Page {pageNumber} of {pagesNumber}
+    &lt;/span>
+
+    &lt;span data-type="info">
+        {startItem} - {endItem} of {itemsNumber}
+    &lt;/span>
+&lt;/div>
+            </code></pre>
+        </div>
+
+        <h3 id="panels">Top and bottom panels</h3>
+
+        <p>
+            Pagination control can be placed in both top and bottom panels for the better user experience. In this case <code class="highlighter-rouge">data-name</code> attribute <b>with the same value</b> should be added. <code class="highlighter-rouge">data-items-per-page</code> and <code class="highlighter-rouge">data-current-page</code> should also have the same values, but HTML structure including macros can be different:
+        </p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;!-- pagination control in the top panel -->
+&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-name="name1"
+        data-items-per-page="5"
+        data-current-page="0">
+
+    &lt;button type="button" data-type="first">«&lt;/button>
+    &lt;button type="button" data-type="prev">‹&lt;/button>
+
+    &lt;div class="jplist-holder" data-type="pages">
+        &lt;button type="button" data-type="page">Page {pageNumber}&lt;/button>
+    &lt;/div>
+
+    &lt;button type="button" data-type="next">›&lt;/button>
+    &lt;button type="button" data-type="last">»&lt;/button>
+
+    &lt;span data-type="info">
+        Page {pageNumber} of {pagesNumber}
+    &lt;/span>
+&lt;/div>
+
+&lt;!-- content to paginate -->
+&lt;div data-jplist-group="group1">
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+&lt;/div>
+
+&lt;!-- pagination control in the bottom panel -->
+&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-name="name1"
+        data-items-per-page="5"
+        data-current-page="0">
+
+    &lt;button type="button" data-type="first">First Page&lt;/button>
+    &lt;button type="button" data-type="prev">Previous Page&lt;/button>
+
+    &lt;div class="jplist-holder" data-type="pages">
+        &lt;button type="button" data-type="page">Page #{pageNumber}&lt;/button>
+    &lt;/div>
+
+    &lt;button type="button" data-type="next">Next Page&lt;/button>
+    &lt;button type="button" data-type="last">Last Page&lt;/button>
+
+    &lt;span data-type="info">
+        {startItem} - {endItem} of {itemsNumber}
+    &lt;/span>
+&lt;/div>
+            </code></pre>
+        </div>
+
+        <h3 id="items-per-page-select">Items per page select</h3>
+
+        <p>The number of items per page can be selected by the user using inner select control. <b>The number of items</b> is defined by the option <b>value</b>, where 0 means all items (1 page). <code class="highlighter-rouge">data-items-per-page</code> data attribute defines the initial selected option.</p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-items-per-page="10"
+        data-current-page="0"
+        data-name="pagination1">
+
+    &lt;button type="button" data-type="first">«&lt;/button>
+    &lt;button type="button" data-type="prev">‹&lt;/button>
+
+    &lt;div class="jplist-holder" data-type="pages">
+        &lt;button type="button" data-type="page">Page {pageNumber}&lt;/button>
+    &lt;/div>
+
+    &lt;button type="button" data-type="next">›&lt;/button>
+    &lt;button type="button" data-type="last">»&lt;/button>
+
+    &lt;!-- items per page select -->
+    &lt;select data-type="items-per-page">
+        &lt;option value="3"> 3 per page &lt;/option>
+        &lt;option value="5"> 5 per page &lt;/option>
+        &lt;option value="10"> 10 per page &lt;/option>
+        &lt;option value="0"> view all &lt;/option>
+    &lt;/select>
+&lt;/div>
+            </code></pre>
+        </div>
+
+        <h3 id="items-per-page-dropdown">Items per page dropdown</h3>
+
+        <p>UL / LI dropdown with custom styles can be used instead of SELECT as items per page selector. <b>The number of items</b> is defined by <b>data-value</b> data attribute, where 0 means all items (1 page). <code class="highlighter-rouge">data-items-per-page</code> data attribute defines the initial selected value.</p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-items-per-page="5"
+        data-current-page="0"
+        data-name="pagination1">
+
+    &lt;button type="button" data-type="first">«&lt;/button>
+    &lt;button type="button" data-type="prev">‹&lt;/button>
+
+    &lt;div class="jplist-holder" data-type="pages">
+        &lt;button type="button" data-type="page">Page {pageNumber}&lt;/button>
+    &lt;/div>
+
+    &lt;button type="button" data-type="next">›&lt;/button>
+    &lt;button type="button" data-type="last">»&lt;/button>
+
+    &lt;!-- items per page dropdown -->
+    &lt;div data-type="items-per-page-dd" class="jplist-dd">
+        &lt;div data-type="panel" class="jplist-dd-panel">Items per page&lt;/div>
+
+        &lt;div data-type="content" class="jplist-dd-content">
+            &lt;div class="jplist-dd-item" data-value="3">3 per page&lt;/div>
+            &lt;div class="jplist-dd-item" data-value="5">5 per page&lt;/div>
+            &lt;div class="jplist-dd-item" data-value="10">10 per page&lt;/div>
+            &lt;div class="jplist-dd-item" data-value="0">View all&lt;/div>
+        &lt;/div>
+
+    &lt;/div>
+&lt;/div>
+
+            </code></pre>
+        </div>
+
+
+        <h3 id="bootstrap-pagination-example">Bootstrap pagination example</h3>
+
+        <p>The following example demonstrates how to use jPList pagination with bootstrap controls:</p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;!-- pagination control -->
+&lt;nav
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-items-per-page="3"
+        data-current-page="0"
+        data-disabled-class="disabled"
+        data-selected-class="active"
+        data-name="pagination1">
+
+    &lt;!-- first and previous buttons -->
+    &lt;ul class="pagination d-inline-flex">
+        &lt;li class="page-item" data-type="first">&lt;a class="page-link" href="#">«&lt;/a>&lt;/li>
+        &lt;li class="page-item" data-type="prev">&lt;a class="page-link" href="#">‹&lt;/a>&lt;/li>
+    &lt;/ul>
+
+    &lt;!-- pages buttons -->
+    &lt;ul class="pagination d-inline-flex" data-type="pages">
+        &lt;li class="page-item" data-type="page">&lt;a class="page-link" href="#">{pageNumber}&lt;/a>&lt;/li>
+    &lt;/ul>
+
+    &lt;!-- next and last buttons -->
+    &lt;ul class="pagination d-inline-flex">
+        &lt;li class="page-item" data-type="next">&lt;a class="page-link" href="#">›&lt;/a>&lt;/li>
+        &lt;li class="page-item" data-type="last">&lt;a class="page-link" href="#">»&lt;/a>&lt;/li>
+    &lt;/ul>
+
+    &lt;!-- items per page dropdown -->
+    &lt;div class="dropdown d-inline-flex ml-3"
+         data-type="items-per-page-dd"
+         data-opened-class="show">
+
+        &lt;button
+                data-type="panel"
+                class="btn btn-primary dropdown-toggle"
+                type="button">
+            Dropdown button
+        &lt;/button>
+
+        &lt;div
+            data-type="content"
+            class="dropdown-menu"
+            aria-labelledby="dropdownMenuButton">
+
+            &lt;a class="dropdown-item" href="#" data-value="3">3 per page&lt;/a>
+            &lt;a class="dropdown-item" href="#" data-value="6">6 per page&lt;/a>
+            &lt;a class="dropdown-item" href="#" data-value="9">9 per page&lt;/a>
+            &lt;a class="dropdown-item" href="#" data-value="0">View All&lt;/a>
+
+        &lt;/div>
+    &lt;/div>
+
+    &lt;!-- information labels -->
+    &lt;span data-type="info" class="badge badge-secondary ml-3 p-2">
+        Page {pageNumber} of {pagesNumber}
+    &lt;/span>
+
+&lt;/nav>
+            </code></pre>
+        </div>
+
+        <h3 id="jump">Jump to top</h3>
+
+        <p><code class="highlighter-rouge">data-jump</code> data attribute can be used to scroll page to the specified location when user clicks a page button. <code class="highlighter-rouge">data-jump="top"</code> scrolls page to the top. Any <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">CSS selector</a> can be used instead of <b>top</b> keyword.</p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;!-- pagination control -->
+&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-items-per-page="5"
+        data-current-page="0"
+        data-jump="top"
+        data-name="pagination1">
+
+    ...
+&lt;/div>
+
+&lt;!-- content to paginate -->
+&lt;div data-jplist-group="group1">
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+&lt;/div>
+            </code></pre>
+        </div>
+
+        <h2 id="pagination-classes">Pagination Classes</h2>
+
+        <p>Pagination control has dynamically updated classes <b>jplist-pages-number-...</b> and <b>jplist-items-number-...</b>. For example it has <b>jplist-pages-number-0</b> and <b>jplist-items-number-0</b> classes after search that returns no results. This behaviour can be used to apply special styles to the inner pagination elements in different cases.</p>
+
+        <p>Also pagination control can accept different styles via data attributes. More details can be found <a href="#data-attributes">here</a>.</p>
+
+        <h2 id="deep-linking">Deep Linking</h2>
+
+        <p><a href="https://en.wikipedia.org/wiki/Deep_linking">Deep links</a> can be used to keep user selections and control states after the page refresh. To implement them <code class="highlighter-rouge">data-id</code> attribute should be added to HTML structure and <i>deepLinking</i> setting should be <i>true</i> in jPList parameters.</p>
+
+        <p>In the example below deep link may look like <b>http://www.example.com/page#group=group1&paging1=0-5</b> where <i>group1</i> is taken from <code class="highlighter-rouge">data-jplist-group="group1"</code>, <b>0</b> is current selected page and <b>5</b> is the current number of <i>items per page</i>.</p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;!-- pagination control -->
+&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-items-per-page="5"
+        data-current-page="0"
+        data-id="paging1"
+        data-name="paging1">
+
+    ...
+&lt;/div>
+
+&lt;!-- content to paginate -->
+&lt;div data-jplist-group="group1">
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+&lt;/div>
+
+&lt;script src="jplist.min.js">&lt;/script>
+&lt;script>
+    jplist.init({
+        deepLinking: true
+    });
+&lt;/script>
+            </code></pre>
+        </div>
+
+        <h2 id="storage">Storage</h2>
+
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Local storage, session storage</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">cookies</a> can be used to keep user selections and control states after the page refresh. To implement them <code class="highlighter-rouge">data-id</code> attribute should be added to HTML structure and <i>storage</i> setting should be passed to jPList constructor.</p>
+
+        <div class="highlight">
+            <pre><code class="language-html" data-lang="html">&lt;!-- pagination control -->
+&lt;div
+        data-jplist-control="pagination"
+        data-group="group1"
+        data-items-per-page="5"
+        data-current-page="0"
+        data-id="paging1"
+        data-name="paging1">
+
+    ...
+&lt;/div>
+
+&lt;!-- content to paginate -->
+&lt;div data-jplist-group="group1">
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+    &lt;!-- item -->
+    &lt;div data-jplist-item>
+        ...
+    &lt;/div>
+
+&lt;/div>
+
+&lt;script src="jplist.min.js">&lt;/script>
+&lt;script>
+    jplist.init({
+        storage: 'localStorage', //'localStorage', 'sessionStorage' or 'cookies'
+        storageName: 'my-page-storage' //the same storage name can be used to share storage between multiple pages
+    });
+&lt;/script>
+            </code></pre>
+        </div>
+
+        <h2 id="data-attributes">Data Attributes</h2>
+
+        <p>The full list of pagination data attributes.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="highlighter-rouge">data-jplist-control</code></td>
+                    <td>Defines pagination control.</td>
+                    <td>"pagination"</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-group</code></td>
+                    <td>Defines group of items that should be paginated. For example, if pagination control has <b>data-group="group1"</b> then items group should have <b>data-jplist-group="group1"</b> data attribute.</td>
+                    <td>any text value</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-name</code></td>
+                    <td>The data-name attribute is used to identify the same controls in different panels. Different controls should have different data-name attributes. By default, data-name attribute has <b>default</b> value.</td>
+                    <td>any text value</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-items-per-page</code></td>
+                    <td>Defines number of items per page.</td>
+                    <td>numeric value</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-current-page</code></td>
+                    <td>Defines initial page number starting from 0.</td>
+                    <td>numeric value</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-range</code></td>
+                    <td>Defines the maximal number of visible pagination button.</td>
+                    <td>numeric value</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-selected-class</code></td>
+                    <td>Optional data attribute that defines CSS class of selected / active page button.</td>
+                    <td>CSS class name, by default <i>jplist-selected</i></td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-disabled-class</code></td>
+                    <td>Optional data attribute that defines CSS class of disabled buttons and can be applied on <i>first</i>, <i>previous</i>, <i>next</i>, and <i>last</i> buttons.</td>
+                    <td>CSS class name, by default <i>jplist-disabled</i></td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-opened-class</code></td>
+                    <td>Optional data attribute that defines CSS class of opened <i>items per page</i> dropdown with custom styles.</td>
+                    <td>CSS class name, by default <i>jplist-dd-opened</i></td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-jump</code></td>
+                    <td>This data attribute can be used to scroll page to the specified location when user clicks a page button. <b>data-jump="top"</b> scrolls page to the top. Any <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">CSS selector</a> can be used instead of <b>top</b> keyword.</td>
+                    <td><i>top</i> keyword or any <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">CSS selector</a></td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-id</code></td>
+                    <td>This attribute is used for deep linking.</td>
+                    <td>any text value that may contain letters, digits, underscores or dashes</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <h3 id="inner-elements-data-attributes">Inner elements</h3>
+
+        <p>Data attributes of inner elements.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="highlighter-rouge">data-type="first"</code></td>
+                    <td>Defines a button. Once clicked, the first page will be opened.</td>
+                    <td>"first"</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-type="last"</code></td>
+                    <td>Defines a button. Once clicked, the last page will be opened.</td>
+                    <td>"last"</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-type="prev"</code></td>
+                    <td>Defines a button. Once clicked, the previous page will be opened.</td>
+                    <td>"prev"</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-type="next"</code></td>
+                    <td>Defines a button. Once clicked, the next page will be opened.</td>
+                    <td>"next"</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-type="page"</code></td>
+                    <td>Defines HTML of page button. Once clicked, the specified page number will be opened.</td>
+                    <td>"next"</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-type="info"</code></td>
+                    <td>Defines information label.</td>
+                    <td>"info"</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-type="items-per-page"</code></td>
+                    <td>Items per page select control.</td>
+                    <td>"items-per-page"</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">data-type="items-per-page-dd"</code></td>
+                    <td>Items per page UL / LI dropdown with custom styles.</td>
+                    <td>"items-per-page-dd"</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="macros">Macros</h3>
+
+        <p>The macros represent pagination data and can be used in information labels and other places.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code class="highlighter-rouge">{pageNumber}</code></td>
+                    <td>Indicates the current page number. Can be used in page button and in information labels.</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">{pagesNumber}</code></td>
+                    <td>Indicates the whole pages number. Can be used in information labels.</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">{startItem}</code></td>
+                    <td>Indicates starting content item.</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">{endItem}</code></td>
+                    <td>Indicates ending content item.</td>
+                </tr>
+
+                <tr>
+                    <td><code class="highlighter-rouge">{itemsNumber}</code></td>
+                    <td>Indicates the number of content items.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        </div>
+    </div>
+
+    <script src="../../highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+        <footer class="bd-footer text-muted">
+            <div class="container-fluid p-3 p-md-5">
+                <ul class="bd-footer-links">
+                    <li><a href="../">Documentation</a></li>
+                    <li><a href="../examples">Examples</a></li>
+                    <li><a href="https://github.com/1rosehip/jplist-es6">Download</a></li>
+                    <li><a href="https://www.facebook.com/jplist/"><i class="fab fa-facebook-square"></i> jPList on Facebook</a></li>
+                </ul>
+
+                <p>jPList Library v1.2.0. <a href="https://github.com/1rosehip/jplist-es6/blob/master/LICENSE.txt" rel="nofollow" target="_blank" rel="license noopener">MIT License</a>.</p>
+
+                <p>
+                    Credits: <a rel="nofollow" href="https://getbootstrap.com">Bootstrap documentation website</a> with changes licensed under <a href="https://creativecommons.org/licenses/by/3.0/" rel="nofollow">the Creative Commons Attribution 3.0 Unported License</a>
+                </p>
+            </div>
+        </footer>
+
+    </body>
+</html>
