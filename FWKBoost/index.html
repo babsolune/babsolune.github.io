@@ -7,46 +7,55 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Use title if it's in the page YAML frontmatter -->
     <title>FWKBoost project</title>
 
     <meta name="description" content="FWKBoost is a CSS/HTML/jQuery framework from PHPBoost CMS" />
     <meta name="keywords" content="PHPBoost, framework, CSS, HTML, javascript, jQuery, prism, icomoon, open source distribution" />
 
-    <!-- icofont -->
-    <link href="./templates/dist/font-awesome/css/all.min.css" rel="stylesheet" type="text/css" />
-    <link href="./templates/default/icoboost/icoboost.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- prism -->
-    <link href="./templates/dist/prism/prism.css" rel="stylesheet" type="text/css" />
+    <!-- jQuery -->
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/jquery.js"></script>
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/fwkboost.min.js"></script>
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/menumaker.min.js"></script>
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/pushmenu.min.js"></script>
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/pushmenu.helpers.min.js"></script>
 
     <!-- Template Base -->
-    <link href="./templates/base/base.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/base/theme/@import.css" rel="stylesheet" type="text/css" />
 
     <link href="./favicon.ico" rel="icon" type="image/ico" />
 
 </head>
 
 <body class="index">
+	<a href="#global" aria-label="go to content"></a>
     <div class="body-wrapper">
         <header id="header">
             <div id="top-header">
-                <div id="site-infos">
-                    <div id="site-logo" style="background-image: url('templates/base/images/logo.svg');"></div>
-                    <div id="site-name-container">
-                        <a name="main-title" id="site-name">FWKBoost</a>
-                        <span id="site-slogan">Framework from PHPBoost</span>
+                <div id="top-header-content" class="content-wrapper"></div>
+            </div>
+            <div id="inner-header">
+				<div id="inner-header-container" class="content-wrapper">
+                    <div id="site-infos">
+                        <div id="site-logo" style="background-image: url('src/__default__/theme/images/logo.svg');"></div>
+                        <div id="site-name-container">
+                            <a name="main-title" id="site-name">FWKBoost</a>
+                            <span id="site-slogan">Framework from PHPBoost</span>
+                        </div>
+                    </div>
+                    <div id="inner-header-content">
+                        <nav class="cssmenu cssmenu-horizontal">
+                            <ul>
+                                <li><a href="#get-started" class="cssmenu-title"><span>Get started</span></a></li>
+                                <li><a href="#documentation" class="cssmenu-title"><span>Documentation</span></a></li>
+                                <li><a name="phpboost" class="cssmenu-title fwkboost-toggle pushmenu-toggle"><i class="fas fa-bars"></i><span>PHPBoost</span></a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
-                <div id="top-header-content">
-                    <nav class="cssmenu cssmenu-horizontal">
-                        <ul>
-                            <li><a href="#get-started" class="cssmenu-title"><span>Get started</span></a></li>
-                            <li><a href="#documentation" class="cssmenu-title"><span>Documentation</span></a></li>
-                            <li><a name="phpboost" class="cssmenu-title fwkboost-toggle pushmenu-toggle"><i class="fas fa-bars"></i><span>PHPBoost</span></a></li>
-                        </ul>
-                    </nav>
-                </div>
+            </div>
+            <div id="sub-header">
+                <div id="sub-header-content" class="content-wrapper"></div>
             </div>
         </header>
         <nav id="pushmenu-fwkboost" class="pushnav">
@@ -77,60 +86,62 @@
             </ul>
         </nav>
 
-        <div id="global">
-            <div id="main">
-                <div id="main-content">
-                    <section>
-                        <header>
-                            <h1>FWKBoost, a framework inspired by a CMS</h1>
-                        </header>
-                        <article id="get-started">
-                                <h2>Get started</h2>
-                                <div class="content">
-                                    <div class="formatter-content formatter-code">
-                                        <span id="copy-code-1" class="copy-code" aria-label="Copier vers le presse-papier" onclick="copy_code_clipboard(1)"><i class="far fa-clone fa-lg"></i></span>
-                                        <div class="formatter-content copy-code-content" id="copy-code-1-content">
-                                            <pre class=" line-numbers language-html"><code class=" language-html">// Template css files
-&lt;link href="templates/base/base.min.css" rel="stylesheet" type="text/css" />
+        <main id="global">
+			<div id="global-container" class="content-wrapper">
+                <div id="main">
+                    <div id="main-content">
+                        <section class="single-item">
+                            <header class="header-section">
+                                <h1>FWKBoost, a framework inspired by a CMS</h1>
+                            </header>
+                            <div class="sub-section">
+                                <div class="content-container">
+                                    <article id="get-started">
+                                            <h2>Get started</h2>
+                                            <div class="content">
+                                                <div class="formatter-content formatter-code">
+                                                    <div class="no-style" id="copy-code-1-content">
+                                                        <pre class="precode"><code>// Template css files
+&lt;link href="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/base/@import.css" rel="stylesheet" type="text/css" />
+&nbsp;
 // jQuery
-&lt;script src="templates/dist/jquery.js">&lt;/script>
+&lt;script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/jquery.js">&lt;/script>
+&nbsp;
 // FWKBoost js plugins
-&lt;script src="templates/default/fwkboost.min.js">&lt;/script>
-// Template initialization js file
-&lt;script src="templates/base/base.init.js">&lt;/script></code></pre>
-                                        </div>
-                                    </div>
+&lt;script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/fwkboost.min.js">&lt;/script>
+&nbsp;
+// js initialization file
+&lt;script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/@init.min.js">&lt;/script></code></pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </article>
                                 </div>
-                        </article>
-                        <article id="documentation">
-                            <header><h2>Documentation</h2></header>
-                            <div class="content">
-                                Actually, you can find the docummentation into the Sandbox module by installing the <a href="https://www.phpboost.com/download/73-phpboost-6-0/782-phpboost-6-0/">PHPBoost CMS beta version</a>.
                             </div>
-                        </article>
-
-                        <footer>
-
-                        </footer>
-                    </section>
+                            <div class="sub-section">
+                                <div class="content-container">
+                                    <article id="documentation">
+                                        <header><h2>Documentation</h2></header>
+                                        <div class="content">
+                                            Actually, you can find the docummentation into the Sandbox module by installing the <a href="https://www.phpboost.com/download/73-phpboost-6-0/782-phpboost-6-0/">PHPBoost CMS beta version</a>.
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <footer></footer>
+                        </section>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
         <footer id="footer">
-            <div class="footer-infos">
+            <div id="footer-infos">
                 <span>Humbly propelled by <a href="https://www.phpboost.com">PHPBoost</a></span>
             </div>
         </footer>
     </div>
 
-    <!-- Jquery -->
-    <script src="./templates/dist/jquery.js"></script>
-    <!-- FWKBoost -->
-    <script src="./templates/default/fwkboost.min.js"></script>
-    <!-- prism -->
-	<script src="./templates/dist/prism/prism.js"></script>
-    <!-- Template -->
-	<script src="./templates/base/base.init.js"></script>
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/@init.min.js"></script>
 
     <!-- pushmenu -->
 	<script>
