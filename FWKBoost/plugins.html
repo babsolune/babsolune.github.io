@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>FWKBoost Plugins</title>
+
+    <meta name="description" content="FWKBoost is a CSS/HTML/jQuery framework from PHPBoost CMS" />
+    <meta name="keywords" content="PHPBoost, framework, CSS, HTML, javascript, jQuery, prism, icomoon, open source distribution" />
+
+    <!-- jQuery -->
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/jquery.js"></script>
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/fwkboost.min.js"></script>
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/menumaker.min.js"></script>
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/pushmenu.min.js"></script>
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/pushmenu.helpers.min.js"></script>
+
+    <!-- Template Base -->
+
+    <link href="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/base/theme/@import.css" rel="stylesheet" type="text/css" />
+
+    <link href="./favicon.ico" rel="icon" type="image/ico" />
+
+</head>
+
+<body class="index">
+	<a href="#global" aria-label="go to content"></a>
+    <div class="body-wrapper">
+        <header id="header">
+            <div id="top-header">
+                <div id="top-header-content" class="content-wrapper"></div>
+            </div>
+            <div id="inner-header">
+				<div id="inner-header-container" class="content-wrapper">
+                    <div id="site-infos">
+                        <div id="site-logo" style="background-image: url('src/__default__/theme/images/logo.svg');"></div>
+                        <div id="site-name-container">
+                            <a name="main-title" id="site-name">FWKBoost</a>
+                            <span id="site-slogan">Framework from PHPBoost</span>
+                        </div>
+                    </div>
+                    <div id="inner-header-content">
+                        <nav class="cssmenu cssmenu-horizontal">
+                            <ul>
+                                <li><a href="./index.html" class="cssmenu-title"><span>Get started</span></a></li>
+                                <li><a name="documentation" class="cssmenu-title documentation-toggle pushmenu-toggle"><span><i class="fa fa-book"></i> Documentation</span></a></li>
+                                <li><a name="phpboost" class="cssmenu-title fwkboost-toggle pushmenu-toggle"><span><i class="fa iboost fa-iboost-phpboost"></i> PHPBoost</span></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div id="sub-header">
+                <div id="sub-header-content" class="content-wrapper"></div>
+            </div>
+            <nav id="pushmenu-fwkboost" class="pushnav">
+                <ul>
+                    <li class=""><a aria-label="Official website" onclick="window.open(this.href); return false;" href="https://www.phpboost.com"><i class="fa iboost fa-fw fa-iboost-logo link-color"></i> <span>PHPBoost</span></a></li>
+                    <li class=""><a aria-label="Demo of the last stable version" onclick="window.open(this.href); return false;" href="https://demo.phpboost.com"><i class="fa iboost fa-fw fa-iboost-logo logo-color"></i> <span>DEMOBoost</span></a></li>
+                    <li class=""><a aria-label="Development website for next version" onclick="window.open(this.href); return false;" href="https://dev.phpboost.com"><i class="fa iboost fa-fw fa-iboost-logo link-color-alt"></i> <span>DEVBoost</span></a></li>
+                    <li class=""><a aria-label="Public website of next version" onclick="window.open(this.href); return false;" href="https://beta.phpboost.com"><i class="fa iboost fa-fw fa-iboost-logo moderator"></i> <span>BETABoost</span></a></li>
+                    <li class=""><a aria-label="PHPBoost on Github" onclick="window.open(this.href); return false;" href="https://github.com/PHPBoost"><i class="fab fa-fw fa-github administrator"></i> <span>Github</span></a></li>
+                </ul>
+            </nav>
+            <nav id="pushmenu-documentation" class="pushnav">
+                <ul>
+                    <li class=""><a href="./templates.html"><i class="fa fa-fw fa-images link-color"></i> <span>Templates</span></a></li>
+                    <li class=""><a href="./plugins.html"><i class="fa fa-fw fa-code logo-color"></i> <span>Plugins</span></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="global">
+			<div id="global-container" class="content-wrapper">
+                <div id="main">
+                    <div id="main-content">
+                        <section class="single-item">
+                            <header class="header-section">
+                                <h1>Available plugins</h1>
+                            </header>
+                            <div class="sub-section">
+                                <div class="content-container">
+                                    @init.min.js initialize the plugins contained in fwkboost.min.js
+                                </div>
+                            </div>
+                            <div class="sub-section">
+                                <div class="content-container cell-flex cell-columns-2 cell-tile">
+                                    <article class="cell">
+                                        <div class="cell-header">
+                                            <div class="cell-name">Content of fwkboost.min.js</div>
+                                        </div>
+                                        <div class="cell-body">
+                                            <div class="cell-list">
+                                                <ul>
+                                                    <li class="li-stretch">
+                                                        <span>@global.min.js</span>
+                                                        <span>Some js functions created by the phpboost team</span>
+                                                    </li>
+                                                    <li class="li-stretch">
+                                                        <span>basictale.min.js</span>
+                                                        <span>make tables responsive</span>
+                                                    </li>
+                                                    <li class="li-stretch">
+                                                        <span>lightcase.min.js</span>
+                                                        <span>Lightbox plugin</span>
+                                                    </li>
+                                                    <li class="li-stretch">
+                                                        <span>multitabs</span>
+                                                        <span>Accordion, modal and tabs menus</span>
+                                                    </li>
+                                                    <li class="li-stretch">
+                                                        <span>owl.carousel.min.js</span>
+                                                        <span>Slideshow for any html tag</span>
+                                                    </li>
+                                                    <li class="li-stretch">
+                                                        <span>precode.min.js</span>
+                                                        <span>formatting pre tag</span>
+                                                    </li>
+                                                    <li class="li-stretch">
+                                                        <span>selectimg.min.js</span>
+                                                        <span>Use select tag with pictures</span>
+                                                    </li>
+                                                    <li class="li-stretch">
+                                                        <span>selectimg.multi.min.js</span>
+                                                        <span>Use select multi with pictures</span>
+                                                    </li>
+                                                    <li class="li-stretch">
+                                                        <span>tooltips.min.js</span>
+                                                        <span>Display aria-label content on hover</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="cell">
+                                        <div class="cell-header">
+                                            <div class="cell-name">More available plugins</div>
+                                        </div>
+                                        <div class="cell-body">
+                                            <div class="cell-list">
+                                                <ul>
+                                                    <li class="li-stretch">
+                                                        <span>list_order.min.js</span>
+                                                        <span>Sort and filter items</span>
+                                                    </li>
+                                                    <li class="li-stretch">
+                                                        <span>menumaker.min.js</span>
+                                                        <span>Responsive multi level menus</span>
+                                                    </li>
+                                                    <li class="li-stretch">
+                                                        <span>pushmenu.min.js <span class="field-description">needs pushmenu.helpers.min.js</span></span>
+                                                        <span>Off canvas mult level menus</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <footer></footer>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer id="footer">
+            <div id="footer-infos">
+                <span>Humbly propelled by <a href="https://www.phpboost.com">PHPBoost</a></span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://ghcdn.rawgit.org/babsolune/babsolune.github.io/master/FWKBoost/src/__default__/plugins/@init.min.js"></script>
+
+    <!-- pushmenu -->
+	<script>
+        jQuery(document).ready(function(){
+    	    jQuery('#pushmenu-fwkboost').pushmenu({
+    			customToggle: jQuery('.fwkboost-toggle'), // null
+    			navTitle: 'WORLDBoost', // null
+    			pushContent: '.body-wrapper',
+    			position: 'right', // left, right, top, bottom
+    			levelOpen: 'overlap', // 'overlap', 'expand', false
+    			levelTitles: true, // overlap only
+    			levelSpacing: 40, // px - overlap only
+    			navClass: 'fwkboost-workspace',
+    			disableBody: true,
+    			closeOnClick: true, // if disableBody is true
+    			insertClose: true,
+    			labelClose: 'Close',
+    			insertBack: true,
+    			labelBack: 'Back'
+    	    });
+    	    jQuery('#pushmenu-documentation').pushmenu({
+    			customToggle: jQuery('.documentation-toggle'), // null
+    			navTitle: 'Documentation', // null
+    			pushContent: '.body-wrapper',
+    			position: 'right', // left, right, top, bottom
+    			levelOpen: 'overlap', // 'overlap', 'expand', false
+    			levelTitles: true, // overlap only
+    			levelSpacing: 40, // px - overlap only
+    			navClass: 'documentation-workspace',
+    			disableBody: true,
+    			closeOnClick: true, // if disableBody is true
+    			insertClose: true,
+    			labelClose: 'Close',
+    			insertBack: true,
+    			labelBack: 'Back'
+    	    });
+        });
+	</script>
+</body>
+</html>
