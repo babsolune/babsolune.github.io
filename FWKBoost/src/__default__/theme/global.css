@@ -6,6 +6,8 @@
  *
 */
 
+.fade-in { display: none; }
+
 /* --- Sizes --- */
 .smallest { font-size: 0.456em; vertical-align: middle; }
 .smaller  { font-size: 0.618em; vertical-align: middle; }
@@ -126,6 +128,8 @@ a.pinned { cursor: pointer; }
 	white-space: nowrap;
 	transform: translate(-50%, -50%);
 }
+
+.stacked .stack-event.small { font-size: 0.618em; padding: 0.228em 0.456em }
 
 .stacked .stack-top-left  	  { top: 0;    left: 0; }
 .stacked .stack-top-center    { top: 0;    left: 50%; }
@@ -285,8 +289,8 @@ strong,
 
 /* --- Icons --- */
 .icon-disabled {
-	opacity: 0.3;
-	cursor: not-allowed;
+	opacity: 0.3 !important;
+	cursor: not-allowed !important;
 }
 
 .flag-icon { margin: 0 0.309em 0 0; }

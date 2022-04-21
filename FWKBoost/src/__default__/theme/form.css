@@ -26,8 +26,6 @@
 
 .form-element [id$="user_avatar"] img { max-width: 200px; }
 
-.form-element > label { padding: 0 0.618em 0.618em 0; }
-
 .subtitle-label { font-size: 1.456em; }
 
 .field-description {
@@ -51,6 +49,7 @@
 .form-field-action-link { text-align: center; }
 
 .form-element > label {
+	padding: 0 0.618em 0.618em 0;
 	display: inline-block;
 	width: 100%;
 	text-align: left;
@@ -77,30 +76,29 @@
 
 .form-element-preview, .form-element-reset {
 	margin: 0.309em auto 0 auto;
-	text-align: center;	
+	text-align: center;
 }
 
 @media (min-width: 1025px) {
 	.form-element-preview, .form-element-reset { display: inline; }
+	
 	.form-element-textarea > label { width: 100%; }
+
+	.form-element-textarea .preview-button { margin: 0.618em auto; }
 }
 
 /* --- Auto-completion --- */
-.autocomplete-suggestion {
-	border-width: 1px;
-	border-style: solid;
-	border-color: transparent;
-	overflow: auto;
-}
-
-.autocomplete-suggestion strong { font-weight: normal; }
-
 .autocomplete-suggestion {
 	padding: 0.1618em 0.309em;
 	white-space: nowrap;
 	overflow: hidden;
 	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	border-color: transparent;
 }
+
+.autocomplete-suggestion strong { font-weight: normal; }
 
 .autocomplete-no-suggestion { text-align: center; }
 
@@ -109,6 +107,8 @@
 	overflow: auto;
 	height: auto;
 	margin: 0.228em 0;
+	padding: 0.228em 0.456em;
+	overflow: hidden;
 }
 
 .xmlhttprequest-preview img { max-width: 600px; }
