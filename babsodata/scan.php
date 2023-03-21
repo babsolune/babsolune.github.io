@@ -36,8 +36,7 @@ function scan($dir){
 					"type" => "file",
 					"path" => $dir . '/' . $file,
 					"size" => filesize($dir . '/' . $file), // Gets the size of this file
-                    "date" => date('Y/m/d', filemtime($dir . '/' . $file)),
-                    // "content" => file_get_contents($dir . '/' . $file)
+                    "date" => date('Y/m/d', filemtime($dir . '/' . $file))
 				);
 			}
 		}
