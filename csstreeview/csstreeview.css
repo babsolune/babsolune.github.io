@@ -1,0 +1,63 @@
+.csstreeview ul {
+    list-style: none;
+    line-height: 2em;
+    margin: 0;
+    padding: 0 0 0 1.618em;
+}
+
+.csstreeview ul details summary::-webkit-details-marker,
+.csstreeview ul details summary::marker {
+    display: none;
+    content: none;
+}
+
+.csstreeview ul li { position: relative; }
+
+.csstreeview ul li::before {
+    position: absolute;
+    content: "";
+    left: -1.228em;
+    top: 0;
+    border-left: 2px solid var(--bdr-main);
+    border-bottom: 2px solid var(--bdr-main);
+    width: 0.809em;
+    height: 1em;
+}
+
+.csstreeview ul li::after {
+    position: absolute;
+    content: "";
+    left: -1.228em;
+    bottom: 0;
+    border-left: 2px solid var(--bdr-main);
+    width: 0.456em;
+    height: 100%;
+}
+
+.csstreeview ul li:last-child::after { display: none; }
+
+.csstreeview > ul > li::before,
+.csstreeview > ul > li::after { display: none; }
+
+.csstreeview ul details > summary::before {
+    position: absolute;
+    cursor: pointer;
+    left: -1.618em;
+    top: 0.618em;
+    content: "+";
+    background-color: var(--bgc-sub);
+    display: block;
+    width: 0.809em;
+    height: 0.809em;
+    border-radius: 100em;
+    border: 1px solid var(--bdr-main);
+    z-index: 5;
+    text-align: center;
+    line-height: 0.809em;
+    font-weight: bold;
+}
+
+.csstreeview ul details[open] > summary::before {
+    content: "-";
+    line-height: 0.618em;
+}
