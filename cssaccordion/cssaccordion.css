@@ -1,0 +1,49 @@
+.cssaccordion details summary::-webkit-details-marker,
+.cssaccordion details summary::marker {
+    display: none;
+    content: none;
+}
+
+.cssaccordion summary {
+    position: relative;
+    padding: 0.618em 1.618em 0.618em 0.618em;
+    background-color: var(--bgc-sub);
+    border-width: 1px 1px 0;
+    border-style: solid;
+    border-color: var(--bdr-sub);
+    cursor: pointer;
+}
+
+.cssaccordion details:last-child:not([open]) summary { border-width: 1px; }
+
+.cssaccordion summary::before {
+    position: absolute;
+    cursor: pointer;
+    right: 0.456em;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "+";
+    background-color: var(--bgc-sub);
+    display: block;
+    width: 0.809em;
+    height: 0.809em;
+    border-radius: 100em;
+    border: 1px solid var(--bdr-sub);
+    z-index: 5;
+    text-align: center;
+    line-height: 0.809em;
+    font-weight: bold;
+}
+
+.cssaccordion details[open] summary::before {
+    content: "-";
+    line-height: 0.618em;
+}
+
+.cssaccordion .accordion-container {
+    padding: 0.618em;
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: var(--bdr-sub);
+    margin-bottom: 0.618em;
+}
